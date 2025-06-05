@@ -1,0 +1,26 @@
+html {
+  font-size: 20px;
+}
+
+body {
+  font-size: 0.8rem;
+
+  background-color: var(--main-bg);
+  color: var(--main-color);
+}
+
+a,
+button {
+  color: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+svg.icon {
+  width: auto;
+  height: auto;
+}
+
+
