@@ -1,1 +1,1 @@
-.link{transition:var(--transition-base)}.link:hover,.link:focus{color:var(--link-hover)}.link:hover .icon,.link:focus .icon{fill:var(--link-hover)}.icon{transition:var(--transition-base);fill:var(--white)}
+.link{transition:var(--transition-base)}.link:hover,.link:focus{color:var(--link-hover)}.link:hover .icon,.link:focus .icon{fill:var(--link-hover)}.icon{transition:var(--transition-base);fill:var(--white)}.icon__socials{fill:var(--red);filter:drop-shadow(0 0 1px var(--red))}.icon__socials:hover{fill:var(--green)}

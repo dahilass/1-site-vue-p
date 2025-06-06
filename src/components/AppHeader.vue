@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppNavList from './AppNavList.vue'
 import headerLogo from '@/assets/images/header-logo.png'
+import IconDecor from './icons/IconDecor.vue'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -12,12 +13,8 @@ import { RouterLink } from 'vue-router'
           <div>
             <p class="header__title">БОКСЕРСКИЙ КЛУБ MOSCOWBOXING</p>
             <div class="header__decor-box">
-              <svg class="icon">
-                <use xlink:href="#icon-decor" />
-              </svg>
-              <svg class="icon">
-                <use xlink:href="#icon-decor" />
-              </svg>
+              <icon-decor />
+              <icon-decor />
             </div>
           </div>
 
@@ -38,7 +35,7 @@ import { RouterLink } from 'vue-router'
 
 <style lang="scss" scoped>
 .header {
-  padding-top: 1px;
+  padding-block: 1px 15px;
 }
 .header__title {
   margin-bottom: 0.1rem;
@@ -80,9 +77,5 @@ import { RouterLink } from 'vue-router'
   & svg:last-child {
     margin-left: -2px;
   }
-}
-svg {
-  width: 150px;
-  height: 13px;
 }
 </style>

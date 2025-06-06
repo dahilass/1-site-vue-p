@@ -13,13 +13,4 @@ import { RouterView } from 'vue-router'
   </div>
 </template>
 
-<style scoped>
-.wrapper {
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-}
-</style>
+<style scoped></style>

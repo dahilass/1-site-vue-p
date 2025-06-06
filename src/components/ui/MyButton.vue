@@ -13,9 +13,10 @@ defineOptions({
 <style lang="scss" scoped>
 .btn {
   padding: 16px 20px;
+  background-color: var(--red);
+  border: 2px solid var(--red);
+  text-transform: uppercase;
   cursor: pointer;
-  background-color: #f24738;
-  border: 2px solid #f24738;
   transition: var(--transition-base);
   &:hover,
   &:focus {
@@ -24,5 +25,6 @@ defineOptions({
 }
 .btn--reversed {
   background-color: transparent;
+  text-transform: none;
 }
 </style>
