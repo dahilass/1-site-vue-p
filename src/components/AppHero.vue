@@ -2,13 +2,15 @@
 import IconYt from './icons/IconYt.vue'
 import IconVk from './icons/IconVk.vue'
 import IconFb from './icons/IconFb.vue'
-import heroBg from '@/assets/images/hero-bg.png'
+import heroBg from '@/assets/images/hero-bg.jpg'
 </script>
 
 <template>
-  <!-- <section class="main__hero hero" :style="{ backgroundImage: `url(${heroBg})` }"> -->
-  <section class="main__hero hero">
-    <img class="hero__bg" :src="heroBg" alt="hero-bg" />
+  <section class="main__hero hero" :style="{ backgroundImage: `url(${heroBg})` }">
+    <!-- <section class="main__hero hero"> -->
+    <!-- <div class="hero__img-box">
+      <img class="hero__img" :src="heroBg" alt="hero-img" />
+    </div> -->
     <div class="container">
       <div class="hero__inner">
         <div class="hero__general">
@@ -45,28 +47,73 @@ import heroBg from '@/assets/images/hero-bg.png'
 </template>
 
 <style lang="scss" scoped>
+$color1: rgba(26, 26, 26, 0.45);
+$color2: rgba(196, 196, 196, 0.75);
+$mix: mix($color1, $color2, 50%);
+
 .hero {
+  // flex-grow: 1;
+  min-height: calc(100vh - var(--header-height));
   position: relative;
   height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-color: $mix;
+    // background-image:
+    //   linear-gradient(rgba(26, 26, 26, 0.45), rgba(196, 196, 196, 0.75)),
+    //   linear-gradient(rgba(196, 196, 196, 0.75), rgba(26, 26, 26, 0.45));
+    // background-blend-mode: multiply;
+  }
   &__inner {
+    position: relative;
+    top: 0;
+    display: flex;
     padding-inline: var(--container-padding);
     width: 100%;
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
-    display: flex;
     justify-content: space-between;
-    top: 0;
-    position: absolute;
+    z-index: 10;
   }
 }
-.hero__general {
-}
-.hero__bg {
-  width: 100%;
-  // height: 100%;
-  // min-height: 670px;
-  object-fit: cover;
-  z-index: -1;
-}
+// .hero__img-box {
+//   width: 100%;
+//   z-index: 11;
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     display: block;
+//     top: 0;
+//     left: 0;
+//     z-index: 10;
+//     width: 100%;
+//     height: 100%;
+//     // background-image:
+//     //   linear-gradient(rgba(26, 26, 26, 0.45), rgba(196, 196, 196, 0.75)),
+//     //   linear-gradient(rgba(196, 196, 196, 0.75), rgba(26, 26, 26, 0.45));
+//     // background-blend-mode: multiply;
+//     background-color: $mix;
+//   }
+// }
+// .hero__img {
+//   width: 100%;
+//   height: 100%;
+//   // height: 100%;
+//   // min-height: 670px;
+//   object-fit: cover;
+//   // opacity: 0.75;
+
+//   z-index: -1;
+// }
 .hero__title {
   padding-top: 4.6rem;
   margin-bottom: 2rem;

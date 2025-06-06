@@ -35,7 +35,8 @@ import { RouterLink } from 'vue-router'
 
 <style lang="scss" scoped>
 .header {
-  padding-block: 1px 15px;
+  min-height: var(--header-height);
+  padding-block: 5px 15px;
 }
 .header__title {
   margin-bottom: 0.1rem;

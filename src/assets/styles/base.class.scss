@@ -21,3 +21,20 @@
     fill: var(--green);
   }
 }
+
+.section__padding {
+  padding-block: 4rem;
+}
+.section__heading {
+  margin-bottom: 4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+}
+.section__title {
+  font-family: 'Noto Sans';
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  // margin-bottom: 4rem;
+}
