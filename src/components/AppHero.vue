@@ -47,11 +47,13 @@ import heroBg from '@/assets/images/hero-bg.jpg'
 </template>
 
 <style lang="scss" scoped>
-$color1: rgba(26, 26, 26, 0.45);
-$color2: rgba(196, 196, 196, 0.75);
-$mix: mix($color1, $color2, 50%);
+@use 'sass:color';
+$overlay-color1: #1a1a1a73;
+$overlay-color2: #c4c4c4bf;
+// $mix: mix($color1, $color2, 50%);
 
 .hero {
+  display: flex;
   // flex-grow: 1;
   min-height: calc(100vh - var(--header-height));
   position: relative;
@@ -68,7 +70,7 @@ $mix: mix($color1, $color2, 50%);
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-color: $mix;
+    background-color: color.mix($overlay-color1, $overlay-color2, 50%);
     // background-image:
     //   linear-gradient(rgba(26, 26, 26, 0.45), rgba(196, 196, 196, 0.75)),
     //   linear-gradient(rgba(196, 196, 196, 0.75), rgba(26, 26, 26, 0.45));
@@ -83,6 +85,16 @@ $mix: mix($color1, $color2, 50%);
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
     justify-content: space-between;
     z-index: 10;
+  }
+  &__general {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .container {
+    padding-block: 4.6rem;
+    display: flex;
+    min-height: 100%;
   }
 }
 // .hero__img-box {
@@ -115,7 +127,7 @@ $mix: mix($color1, $color2, 50%);
 //   z-index: -1;
 // }
 .hero__title {
-  padding-top: 4.6rem;
+  // padding-top: 4.6rem;
   margin-bottom: 2rem;
   max-width: 27rem;
 
@@ -133,6 +145,8 @@ $mix: mix($color1, $color2, 50%);
   gap: 1rem;
 }
 .hero__btn {
+  align-self: start;
+  display: inline;
   margin-top: 3rem;
 }
 .hero__socials {

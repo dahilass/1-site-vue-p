@@ -2,6 +2,7 @@
 import AppHero from '@/components/AppHero.vue'
 import AppAbout from '@/components/AppAbout.vue'
 import AppButton from '@/components/AppButton.vue'
+import AppCoach from '@/components/AppCoach.vue'
 
 import BlankBlock from '@/components/BlankBlock.vue'
 </script>
@@ -10,6 +11,7 @@ import BlankBlock from '@/components/BlankBlock.vue'
   <main>
     <app-hero />
     <app-about />
+    <app-coach />
     <app-button :text="'записаться на гостевое'" />
     <app-button :text="'ОНЛАЙН-ЗАПИСЬ'" />
     <blank-block></blank-block>

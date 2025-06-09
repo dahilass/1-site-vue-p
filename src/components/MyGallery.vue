@@ -1,25 +1,44 @@
 <script setup lang="ts">
-type imageInfo = {
-  id: string
-  path: string
-  description?: string
-  link?: string
-}
+import { ref } from 'vue'
+
+// import IconDecor from './icons/IconDecor.vue'
+
+import type { ImageInfo } from '@/types'
+
+const loaded = ref(true)
 defineProps<{
-  images: imageInfo[]
+  images: ImageInfo[]
+  // src: string
+  // alt?: string
 }>()
 </script>
 
 <template>
   <ul class="gallery">
-    <li v-for="item in images" :key="item.id">
-      <img :src="item.path" alt="gallery-image" />
+    <li v-for="item in images" :key="item.id" class="gallery__item">
+      <!-- <icon-decor /> -->
+      <img
+        class="gallery__img"
+        :src="item.imgUrl"
+        :class="{ 'img-loaded': loaded, 'img-error': !loaded }"
+        alt="gallery-image"
+        @load="loaded = true"
+        @error="loaded = false"
+      />
+      <div v-if="item.name || item.desc" class="gallery__item-info">
+        <p class="gallery__item-name" v-if="item.name">{{ item.name }}</p>
+        <p class="gallery__item-description" v-if="item.desc">{{ item.desc }}</p>
+      </div>
     </li>
   </ul>
 </template>
 
 <style lang="scss" scoped>
-li {
+.gallry {
+  display: flex;
+}
+
+.gallery--overlay li {
   position: relative;
   &::after {
     content: '';
@@ -27,5 +46,9 @@ li {
     inset: 0;
     background-color: #10101073;
   }
+}
+.gallery__item-description {
+  font-size: 14px;
+  line-height: 16px;
 }
 </style>
