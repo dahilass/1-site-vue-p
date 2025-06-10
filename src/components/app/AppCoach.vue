@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MyGallery from './MyGallery.vue'
-import IconDecor from './icons/IconDecor.vue'
+import IconDecor from '../icons/IconDecor.vue'
 
 // import type { ImageInfo } from '@/types'
 
@@ -23,7 +23,7 @@ import { coachInfoArray } from '@/data'
         <my-heading class="coach__heading">Тренеры</my-heading>
         <!-- <my-gallery :images="coachInfoArray" class="coach__gallery gallery--decorated" /> -->
         <my-gallery :images="coachInfoArray" class="coach__gallery">
-          <icon-decor class="gallery__decoration"></icon-decor>
+          <icon-decor class="coach__icon"></icon-decor>
         </my-gallery>
       </div>
     </div>
@@ -31,12 +31,21 @@ import { coachInfoArray } from '@/data'
 </template>
 
 <style lang="scss">
+.coach {
+  background-color: var(--alt-bg);
+}
 .coach__gallery {
   display: grid;
   grid-template: 1fr 1fr / 1fr 1fr;
   align-items: center;
   justify-items: center;
   gap: 4rem 2rem;
+  @media (max-width: 1000px) {
+    color: aqua;
+    grid-template: 1fr / 1fr;
+    justify-items: initial;
+    gap: 1rem;
+  }
   & .gallery__item-name {
     margin-bottom: 1rem;
   }
@@ -46,17 +55,29 @@ import { coachInfoArray } from '@/data'
     max-width: 21rem;
     max-height: 12.5rem;
     gap: 0.5rem;
+
+    @media (max-width: 1000px) {
+      margin-inline: 2rem;
+    }
+
     & .gallery__item-info {
       width: 12.5rem;
       height: 12.5rem;
       z-index: 0;
       padding-block: 2rem;
-
       border: 2px solid var(--red);
+      background-color: var(--red-glassy);
     }
+
     & .gallery__img {
+      max-width: 10rem;
+      max-height: 10rem;
+      aspect-ratio: 1/1;
+      // border-radius: 4px;
       z-index: 10;
+      box-shadow: 0 0 3px var(--main-color);
     }
+
     &:nth-child(odd) {
       flex-direction: row-reverse;
       .gallery__item-info {
@@ -65,11 +86,12 @@ import { coachInfoArray } from '@/data'
       .gallery__img {
         margin-left: -2rem;
       }
-      .gallery__decoration {
+      .coach__icon {
         left: 0;
         transform: translate(-49.5%, -50%) rotate(90deg);
       }
     }
+
     &:nth-child(even) {
       .gallery__item-info {
         padding-inline: 2.5rem 1rem;
@@ -77,15 +99,19 @@ import { coachInfoArray } from '@/data'
       .gallery__img {
         margin-right: -2rem;
       }
-      .gallery__decoration {
+      .coach__icon {
         right: 0;
         transform: translate(49.5%, -50%) rotate(90deg);
+      }
+
+      @media (max-width: 1000px) {
+        justify-self: end;
       }
     }
   }
 }
 
-.gallery__decoration {
+.coach__icon {
   z-index: 100;
   position: absolute;
   border-inline: 2px solid var(--red);

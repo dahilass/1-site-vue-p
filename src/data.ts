@@ -1,6 +1,11 @@
 import type { ImageInfo } from "./types";
 
-const images = import.meta.glob('@/assets/images/coach/*.jpg', {
+const coachImages = import.meta.glob('@/assets/images/coach/*.jpg', {
+  eager: true,
+  as: 'url',
+})
+
+const subjectImages = import.meta.glob('@/assets/images/subject/*.jpg', {
   eager: true,
   as: 'url',
 })
@@ -40,9 +45,34 @@ export const coachInfoArray: ImageInfo[] = [
 
 let counter = 0;
 
-
-
 for (const person of coachInfoArray) {
   person.id = crypto.randomUUID()
-  person.imgUrl = Object.values(images)[counter++]
+  person.imgUrl = Object.values(coachImages)[counter++]
 }
+
+
+export const subjects: ImageInfo[] = [{
+  name: 'ТАЙСКИЙ БОКС',
+  desc: 'Боевое искусство Таиланда, произошедшее из древнего тайского боевого искусства муай боран и схожее с другими индокитайскими боевыми искусствами Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
+  router: '/'
+},
+{
+  name: 'КЛАССИЧЕСКИЙ БОКС',
+  desc: 'Контактный вид спорта, единоборство, в котором спортсмены наносят друг другу удары кулаками в специальных перчатках. Рефери контролирует бой, который длится до 12 раундов Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
+  router: '/'
+},
+{
+  name: 'ТХЭКВОНДО',
+  desc: 'Корейское боевое искусство. Характерная особенность - активное использование ног в бою; причем как для ударов, так и для защитных действий. Общепринятое литературное толкование звучит как Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
+  router: '/'
+}
+]
+
+counter = 0
+
+for (const unit of subjects) {
+  unit.id = crypto.randomUUID()
+  unit.imgUrl = Object.values(subjectImages)[counter++]
+}
+
+

@@ -12,6 +12,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 .btn-box {
+  background-color: var(--alt-bg);
   text-align: center;
 }
 </style>

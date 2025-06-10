@@ -5,6 +5,7 @@ export type ImageInfo = {
   imgUrl?: string
   name?: string
   desc?: string
+  router?: string
 }
 
 // export type PersonInfo = {

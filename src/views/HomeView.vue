@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import AppHero from '@/components/AppHero.vue'
-import AppAbout from '@/components/AppAbout.vue'
-import AppButton from '@/components/AppButton.vue'
-import AppCoach from '@/components/AppCoach.vue'
-
-import BlankBlock from '@/components/BlankBlock.vue'
+import AppHero from '@/components/app/AppHero.vue'
+import AppAbout from '@/components/app/AppAbout.vue'
+import AppButton from '@/components/app/AppButton.vue'
+import AppCoach from '@/components/app/AppCoach.vue'
+import AppSubject from '@/components/app/AppSubject.vue'
+import AppSchedule from '@/components/app/AppSchedule.vue'
+import AppContact from '@/components/app/AppContact.vue'
 </script>
 
 <template>
@@ -13,8 +14,10 @@ import BlankBlock from '@/components/BlankBlock.vue'
     <app-about />
     <app-coach />
     <app-button :text="'записаться на гостевое'" />
+    <app-subject />
     <app-button :text="'ОНЛАЙН-ЗАПИСЬ'" />
-    <blank-block></blank-block>
+    <app-schedule />
+    <app-contact />
   </main>
 </template>
 

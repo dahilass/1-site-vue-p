@@ -3,12 +3,15 @@ import { ref } from 'vue'
 
 import type { ImageInfo } from '@/types'
 
+import { RouterLink } from 'vue-router'
+
 const loaded = ref(true)
 
 defineProps<{
   images: ImageInfo[]
   // src: string
   // alt?: string
+  lineClamp?: number
 }>()
 </script>
 
@@ -24,10 +27,19 @@ defineProps<{
         @load="loaded = true"
         @error="loaded = false"
       />
-      <div v-if="item.name || item.desc" class="gallery__item-info">
-        <p class="gallery__item-name" v-if="item.name">{{ item.name }}</p>
-        <p class="gallery__item-description" v-if="item.desc">{{ item.desc }}</p>
-      </div>
+      <article v-if="item.name || item.desc" class="gallery__item-info">
+        <h3 class="gallery__item-name" v-if="item.name">{{ item.name }}</h3>
+        <p
+          :style="{ 'line-clamp': lineClamp || 0 }"
+          class="gallery__item-description"
+          v-if="item.desc"
+        >
+          {{ item.desc }}
+        </p>
+        <router-link v-if="item.router" :to="item.router" class="gallery__link"
+          >Читать...</router-link
+        >
+      </article>
     </li>
   </ul>
 </template>
@@ -43,10 +55,23 @@ defineProps<{
   }
 }
 .gallery__item {
+  overflow-block: clip;
   position: relative;
   &-description {
     font-size: 14px;
     line-height: 16px;
   }
+}
+.gallery__item-info {
+}
+.gallery__item-name {
+  font-family: 'One day';
+  font-size: 1.2rem;
+}
+.gallery__item-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  // -webkit-line-clamp: 3;
 }
 </style>

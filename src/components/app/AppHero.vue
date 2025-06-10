@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import IconYt from './icons/IconYt.vue'
-import IconVk from './icons/IconVk.vue'
-import IconFb from './icons/IconFb.vue'
+import IconYt from '../icons/IconYt.vue'
+import IconVk from '../icons/IconVk.vue'
+import IconFb from '../icons/IconFb.vue'
 import heroBg from '@/assets/images/hero-bg.jpg'
 </script>
 

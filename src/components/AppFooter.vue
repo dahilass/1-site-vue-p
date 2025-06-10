@@ -1,7 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-  <footer class="footer">This is footer!</footer>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">This is footer!</div>
+    </div>
+  </footer>
 </template>
 
 <style scoped>

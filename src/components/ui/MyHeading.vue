@@ -14,4 +14,8 @@ defineOptions({
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.section__heading {
+  margin-top: 3.5rem;
+}
+</style>
