@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import MyGallery from './MyGallery.vue'
+import IconDecor from './icons/IconDecor.vue'
 
 // import type { ImageInfo } from '@/types'
 
@@ -13,7 +14,6 @@ import { coachInfoArray } from '@/data'
 // for (const item of galleryArray) {
 //   item.id = crypto.randomUUID()
 // }
-
 </script>
 
 <template>
@@ -21,7 +21,10 @@ import { coachInfoArray } from '@/data'
     <div class="container">
       <div class="coach__inner">
         <my-heading class="coach__heading">Тренеры</my-heading>
-        <my-gallery :images="coachInfoArray" class="coach__gallery" />
+        <!-- <my-gallery :images="coachInfoArray" class="coach__gallery gallery--decorated" /> -->
+        <my-gallery :images="coachInfoArray" class="coach__gallery">
+          <icon-decor class="gallery__decoration"></icon-decor>
+        </my-gallery>
       </div>
     </div>
   </section>
@@ -49,7 +52,7 @@ import { coachInfoArray } from '@/data'
       z-index: 0;
       padding-block: 2rem;
 
-      border: 1px solid red;
+      border: 2px solid var(--red);
     }
     & .gallery__img {
       z-index: 10;
@@ -62,6 +65,10 @@ import { coachInfoArray } from '@/data'
       .gallery__img {
         margin-left: -2rem;
       }
+      .gallery__decoration {
+        left: 0;
+        transform: translate(-49.5%, -50%) rotate(90deg);
+      }
     }
     &:nth-child(even) {
       .gallery__item-info {
@@ -70,7 +77,28 @@ import { coachInfoArray } from '@/data'
       .gallery__img {
         margin-right: -2rem;
       }
+      .gallery__decoration {
+        right: 0;
+        transform: translate(49.5%, -50%) rotate(90deg);
+      }
     }
   }
+}
+
+.gallery__decoration {
+  z-index: 100;
+  position: absolute;
+  border-inline: 2px solid var(--red);
+  top: 50%;
+  // // left: 0;
+  // // transform: translateX(50%);
+  // &--left {
+  //   left: 0;
+  //   transform: translate(-49.5%, -50%) rotate(90deg);
+  // }
+  // &--right {
+  //   right: 0;
+  //   transform: translate(49.5%, -50%) rotate(90deg);
+  // }
 }
 </style>

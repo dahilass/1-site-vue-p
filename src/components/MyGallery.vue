@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-// import IconDecor from './icons/IconDecor.vue'
-
 import type { ImageInfo } from '@/types'
 
 const loaded = ref(true)
+
 defineProps<{
   images: ImageInfo[]
   // src: string
@@ -16,7 +15,7 @@ defineProps<{
 <template>
   <ul class="gallery">
     <li v-for="item in images" :key="item.id" class="gallery__item">
-      <!-- <icon-decor /> -->
+      <slot></slot>
       <img
         class="gallery__img"
         :src="item.imgUrl"
@@ -34,10 +33,6 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
-.gallry {
-  display: flex;
-}
-
 .gallery--overlay li {
   position: relative;
   &::after {
@@ -47,8 +42,11 @@ defineProps<{
     background-color: #10101073;
   }
 }
-.gallery__item-description {
-  font-size: 14px;
-  line-height: 16px;
+.gallery__item {
+  position: relative;
+  &-description {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }
 </style>
