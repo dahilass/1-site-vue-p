@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section class="schedule main__schedule">
+  <section class="schedule section-padding">
     <div class="container">
       <div class="schedule__innner">
         <my-heading>расписание</my-heading>

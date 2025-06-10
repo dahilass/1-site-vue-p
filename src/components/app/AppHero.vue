@@ -6,7 +6,7 @@ import heroBg from '@/assets/images/hero-bg.jpg'
 </script>
 
 <template>
-  <section class="main__hero hero" :style="{ backgroundImage: `url(${heroBg})` }">
+  <section class="section-padding hero" :style="{ backgroundImage: `url(${heroBg})` }">
     <!-- <section class="main__hero hero"> -->
     <!-- <div class="hero__img-box">
       <img class="hero__img" :src="heroBg" alt="hero-img" />

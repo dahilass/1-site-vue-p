@@ -15,7 +15,7 @@ const galleryArray: ImageInfo[] = [
 </script>
 
 <template>
-  <section class="about main__about section__padding">
+  <section class="about section-padding">
     <div class="container">
       <div class="about__inner">
         <!-- <div class="section__heading about__heading">

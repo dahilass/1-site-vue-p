@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="btn-box section__padding">
+  <div class="btn-box section-padding">
     <my-button>{{ text }}</my-button>
   </div>
 </template>

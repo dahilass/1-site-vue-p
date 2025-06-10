@@ -17,7 +17,7 @@ import { coachInfoArray } from '@/data'
 </script>
 
 <template>
-  <section class="coach main__coach">
+  <section class="coach section-padding">
     <div class="container">
       <div class="coach__inner">
         <my-heading class="coach__heading">Тренеры</my-heading>

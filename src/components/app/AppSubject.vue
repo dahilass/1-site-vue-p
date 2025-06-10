@@ -6,7 +6,7 @@ import IconDecor from '../icons/IconDecor.vue'
 </script>
 
 <template>
-  <section class="subject main__subject">
+  <section class="subject section-padding">
     <div class="container">
       <div class="subject__inner">
         <my-heading>Дисциплины</my-heading>

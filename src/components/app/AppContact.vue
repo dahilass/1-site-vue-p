@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section class="contact main__contact">
+  <section class="contact section-padding">
     <!-- <yandex-map /> -->
   </section>
 </template>
