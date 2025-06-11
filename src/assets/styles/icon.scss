@@ -1,0 +1,13 @@
+.icon {
+  transition: var(--transition-base);
+  fill: var(--white);
+}
+.icon__socials {
+  fill: var(--accent-color);
+
+  filter: drop-shadow(0 0 1px var(--accent-color));
+
+  &:hover {
+    fill: var(--link-hover);
+  }
+}
