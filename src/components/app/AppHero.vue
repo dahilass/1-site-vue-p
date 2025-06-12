@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import IconYt from '../icons/IconYt.vue'
-import IconVk from '../icons/IconVk.vue'
-import IconFb from '../icons/IconFb.vue'
 import heroBg from '@/assets/images/hero-bg.jpg'
+import MySocial from '../ui/MySocial.vue'
 </script>
 
 <template>
   <section class="section-padding hero" :style="{ backgroundImage: `url(${heroBg})` }">
-    <!-- <section class="main__hero hero"> -->
-    <!-- <div class="hero__img-box">
-      <img class="hero__img" :src="heroBg" alt="hero-img" />
-    </div> -->
+    >
     <div class="container">
       <div class="hero__inner">
         <div class="hero__general">
@@ -24,23 +19,7 @@ import heroBg from '@/assets/images/hero-bg.jpg'
           </div>
           <my-button class="btn hero__btn">Онлайн запись</my-button>
         </div>
-        <ul class="hero__socials socials">
-          <li>
-            <a href="https://vk.com" target="_blank" rel="noopener noreferrer">
-              <icon-vk />
-            </a>
-          </li>
-          <li>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-              <icon-fb />
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-              <icon-yt />
-            </a>
-          </li>
-        </ul>
+        <my-social class="hero__social" />
       </div>
     </div>
   </section>
@@ -54,7 +33,6 @@ $overlay-color2: #c4c4c4bf;
 
 .hero {
   display: flex;
-  // flex-grow: 1;
   min-height: calc(100vh - var(--header-height));
   position: relative;
   height: 100%;
@@ -97,35 +75,6 @@ $overlay-color2: #c4c4c4bf;
     min-height: 100%;
   }
 }
-// .hero__img-box {
-//   width: 100%;
-//   z-index: 11;
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     display: block;
-//     top: 0;
-//     left: 0;
-//     z-index: 10;
-//     width: 100%;
-//     height: 100%;
-//     // background-image:
-//     //   linear-gradient(rgba(26, 26, 26, 0.45), rgba(196, 196, 196, 0.75)),
-//     //   linear-gradient(rgba(196, 196, 196, 0.75), rgba(26, 26, 26, 0.45));
-//     // background-blend-mode: multiply;
-//     background-color: $mix;
-//   }
-// }
-// .hero__img {
-//   width: 100%;
-//   height: 100%;
-//   // height: 100%;
-//   // min-height: 670px;
-//   object-fit: cover;
-//   // opacity: 0.75;
-
-//   z-index: -1;
-// }
 .hero__title {
   // padding-top: 4.6rem;
   margin-bottom: 2rem;
@@ -135,7 +84,7 @@ $overlay-color2: #c4c4c4bf;
   line-height: 2.4rem;
   text-transform: uppercase;
   span {
-    color: var(--red);
+    color: var(--accent-color);
   }
 }
 .hero__contact {
@@ -149,12 +98,12 @@ $overlay-color2: #c4c4c4bf;
   display: inline;
   margin-top: 3rem;
 }
-.hero__socials {
-  display: flex;
+.hero__social {
   flex-direction: column;
-  gap: 0.8rem;
   align-self: end;
   margin-bottom: 3rem;
   margin-right: 1rem;
+  gap: 0.25rem;
+  background-color: coral;
 }
 </style>

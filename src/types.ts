@@ -13,3 +13,8 @@ export type ImageInfo = {
 //   desc: string
 //   path?: string
 // }
+
+export type NavItem = {
+  title: string,
+  path: string,
+}

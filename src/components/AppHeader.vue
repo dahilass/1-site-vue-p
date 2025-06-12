@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import AppNavList from './AppNavList.vue'
-import headerLogo from '@/assets/images/header-logo.png'
-import IconDecor from './icons/IconDecor.vue'
 import { RouterLink } from 'vue-router'
+
+import AppNavList from './AppNavList.vue'
+import MyLogo from './ui/MyLogo.vue'
+import IconDecor from './icons/IconDecor.vue'
+
+import { headerNavData } from '@/data'
 </script>
 
 <template>
@@ -19,7 +22,7 @@ import { RouterLink } from 'vue-router'
           </div>
 
           <router-link to="/">
-            <img class="header__logo" :src="headerLogo" alt="logo" />
+            <my-logo />
           </router-link>
 
           <div class="header__contact">
@@ -27,13 +30,13 @@ import { RouterLink } from 'vue-router'
             <a class="link" href="tel:+74952013438">+ 7 (495) 201 34 38</a>
           </div>
         </div>
-        <AppNavList />
+        <app-nav-list :nav-items="headerNavData" class="header__nav" />
       </div>
     </div>
   </header>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .header {
   min-height: var(--header-height);
   padding-block: 5px 15px;
@@ -49,19 +52,16 @@ import { RouterLink } from 'vue-router'
   display: flex;
   flex-direction: column;
 }
-.header__logo {
-  width: 100%;
-  height: 100%;
-  max-width: 80px;
-  max-height: 80px;
-}
 .header__row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.6rem;
 }
 .header__nav {
-  justify-content: center;
+  .nav-list {
+    justify-content: center;
+    gap: 1.25rem;
+  }
 }
 .header__contact {
   display: flex;

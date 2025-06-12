@@ -14,8 +14,8 @@ defineOptions({
 .btn {
   min-width: 12rem;
   padding: 16px 20px;
-  border: 2px solid var(--red);
-  background-color: var(--red);
+  border: 2px solid var(--accent-color);
+  background-color: var(--accent-color);
   transition: var(--transition-base);
   cursor: pointer;
   text-transform: uppercase;

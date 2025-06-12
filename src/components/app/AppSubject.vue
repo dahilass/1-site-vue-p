@@ -51,6 +51,7 @@ import IconDecor from '../icons/IconDecor.vue'
       position: absolute;
     }
     &-name {
+      font-size: 1.2rem;
       margin-bottom: 2rem;
     }
     &-description {

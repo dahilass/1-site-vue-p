@@ -8,20 +8,6 @@
     fill: var(--link-hover);
   }
 }
-.icon {
-  transition: var(--transition-base);
-  fill: var(--white);
-}
-.icon__socials {
-  fill: var(--red);
-
-  filter: drop-shadow(0 0 1px var(--red));
-
-  &:hover {
-    fill: var(--link-hover);
-  }
-}
-
 .section-padding {
   padding-block: 4rem;
 }
@@ -37,4 +23,11 @@
   font-size: 1.6rem;
   text-transform: uppercase;
   // margin-bottom: 4rem;
+}
+
+.alt-bg {
+  background-color: var(--alt-bg);
+}
+.marked {
+  color: var(--accent-color);
 }

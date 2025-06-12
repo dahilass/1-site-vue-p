@@ -2,7 +2,7 @@
 
 <template>
   <svg class="icon icon__social">
-    <use xlink:href="#icon-fb"></use>
+    <use xlink:href="#icon-inst" />
   </svg>
 </template>
 

@@ -1,13 +1,12 @@
 .icon {
-  transition: var(--transition-base);
-  fill: var(--white);
+  vertical-align: top;
 }
-.icon__socials {
+.icon__social {
   fill: var(--accent-color);
 
   filter: drop-shadow(0 0 1px var(--accent-color));
-
-  &:hover {
-    fill: var(--link-hover);
-  }
+}
+a:hover .icon__social {
+  fill: var(--link-hover);
+  transition: var(--transition-base);
 }

@@ -1,14 +1,17 @@
-import type { ImageInfo } from "./types";
+import type { ImageInfo, NavItem } from "./types";
 
-const coachImages = import.meta.glob('@/assets/images/coach/*.jpg', {
+const coachImages: Record<string, string> = import.meta.glob('@/assets/images/coach/*.jpg', {
   eager: true,
-  as: 'url',
+  // as: 'url'
+  import: 'default'
 })
 
-const subjectImages = import.meta.glob('@/assets/images/subject/*.jpg', {
+const subjectImages: Record<string, string> = import.meta.glob('@/assets/images/subject/*.jpg', {
   eager: true,
-  as: 'url',
+  // as: 'url'
+  import: 'default'
 })
+
 
 export const coachInfoArray: ImageInfo[] = [
   {
@@ -24,7 +27,7 @@ export const coachInfoArray: ImageInfo[] = [
   {
     name: 'Коцоев Арсений',
     desc: 'КМС по боксу и кик-боксингу, Арсений является ярким представителем школы единоборств Республики Северная Осетия - Алания. Тренирует персонально во всех залах клуба!',
-    imgUrl: '@/assets/images/coach/1.jpg',
+    // imgUrl: '@/assets/images/coach/1.jpg',
   },
   {
     name: 'Аслан Жабоев',
@@ -44,12 +47,12 @@ export const coachInfoArray: ImageInfo[] = [
 ]
 
 let counter = 0;
+let imagesArray: string[] = Object.values(coachImages)
 
 for (const person of coachInfoArray) {
   person.id = crypto.randomUUID()
-  person.imgUrl = Object.values(coachImages)[counter++]
+  person.imgUrl = imagesArray[counter++]
 }
-
 
 export const subjects: ImageInfo[] = [{
   name: 'ТАЙСКИЙ БОКС',
@@ -69,10 +72,12 @@ export const subjects: ImageInfo[] = [{
 ]
 
 counter = 0
+imagesArray = Object.values(subjectImages)
 
 for (const unit of subjects) {
   unit.id = crypto.randomUUID()
-  unit.imgUrl = Object.values(subjectImages)[counter++]
+  unit.imgUrl = imagesArray[counter++]
 }
 
-
+export const headerNavData: NavItem[] = [{ title: 'О НАС', path: '/' }, { title: 'ЦЕНЫ', path: '/' }, { title: 'ТРЕНЕРЫ', path: '/' }, { title: 'РАСПИСАНИЕ', path: '/' }, { title: 'АРЕНДА', path: '/' }, { title: 'КОНТАКТЫ', path: '/' }]
+export const footerNavData: NavItem[] = [{ title: 'Начинающим', path: '/' }, { title: 'Оплата', path: '/' }, { title: 'Интересное', path: '/' }, { title: 'Юридическая информация', path: '/' }, { title: 'Обучение', path: '/' }, { title: 'Возврат', path: '/' }, { title: 'Контакты', path: '/' }]

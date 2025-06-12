@@ -62,11 +62,8 @@ defineProps<{
     line-height: 16px;
   }
 }
-.gallery__item-info {
-}
 .gallery__item-name {
   font-family: 'One day';
-  font-size: 1.2rem;
 }
 .gallery__item-description {
   display: -webkit-box;

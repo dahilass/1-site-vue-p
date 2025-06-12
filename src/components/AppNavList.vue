@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import IconGloves from './icons/IconGloves.vue'
+// import IconGloves from './icons/IconGloves.vue'
+
+import type { NavItem } from '@/types'
+
+defineProps<{
+  navItems: NavItem[]
+}>()
 </script>
 
 <template>
   <nav class="nav">
     <ul class="nav-list">
+      <li v-for="item of navItems" :key="item.path">
+        <router-link class="link" to="/">{{ item.title }}</router-link>
+      </li>
+    </ul>
+    <!-- <ul class="nav-list">
       <li>
         <router-link class="link" to="/"> О НАС <icon-gloves /></router-link>
       </li>
@@ -24,7 +35,7 @@ import IconGloves from './icons/IconGloves.vue'
       <li>
         <router-link class="link" to="/">КОНТАКТЫ</router-link>
       </li>
-    </ul>
+    </ul> -->
   </nav>
 </template>
 
@@ -32,8 +43,8 @@ import IconGloves from './icons/IconGloves.vue'
 .nav-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 21px;
 }
 a {
   display: flex;

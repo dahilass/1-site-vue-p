@@ -6,6 +6,7 @@ import AppCoach from '@/components/app/AppCoach.vue'
 import AppSubject from '@/components/app/AppSubject.vue'
 import AppSchedule from '@/components/app/AppSchedule.vue'
 import AppContact from '@/components/app/AppContact.vue'
+import AppVideo from '@/components/app/AppVideo.vue'
 </script>
 
 <template>
@@ -13,10 +14,12 @@ import AppContact from '@/components/app/AppContact.vue'
     <app-hero />
     <app-about />
     <app-coach />
-    <app-button :text="'записаться на гостевое'" />
+    <app-button class="alt-bg">записаться на гостевое</app-button>
     <app-subject />
-    <app-button :text="'ОНЛАЙН-ЗАПИСЬ'" />
+    <app-button class="alt-bg">ОНЛАЙН-ЗАПИСЬ</app-button>
     <app-schedule />
+    <app-button>ОНЛАЙН-ЗАПИСЬ</app-button>
+    <app-video />
     <app-contact />
   </main>
 </template>

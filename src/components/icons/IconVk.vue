@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <svg class="icon icon__socials">
+  <svg class="icon icon__social">
     <use xlink:href="#icon-vk"></use>
   </svg>
 </template>

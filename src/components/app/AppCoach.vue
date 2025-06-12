@@ -65,8 +65,8 @@ import { coachInfoArray } from '@/data'
       height: 12.5rem;
       z-index: 0;
       padding-block: 2rem;
-      border: 2px solid var(--red);
-      background-color: var(--red-glassy);
+      border: 2px solid var(----accent-color);
+      background-color: var(--accent-color-op);
     }
 
     & .gallery__img {
