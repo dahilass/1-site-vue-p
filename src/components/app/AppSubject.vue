@@ -19,9 +19,6 @@ import IconDecor from '../icons/IconDecor.vue'
 </template>
 
 <style lang="scss">
-.subject {
-  background-color: var(--alt-bg);
-}
 .subject__gallery {
   display: flex;
   justify-content: center;

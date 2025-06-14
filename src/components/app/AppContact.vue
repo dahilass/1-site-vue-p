@@ -36,6 +36,7 @@ const map = shallowRef<null | YMap>(null)
 
 <style lang="scss" scoped>
 .contact {
+  padding-block: 0;
   filter: grayscale(15%);
 }
 </style>

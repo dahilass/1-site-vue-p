@@ -27,7 +27,7 @@ import { footerNavData } from '@/data'
           <app-nav-list :nav-items="footerNavData" class="footer__nav" />
         </div>
         <div class="footer__row">
-          <a class="footer__email" href="mailto:info@moscowboxing.ru">
+          <a class="link footer__link marked" href="mailto:info@moscowboxing.ru">
             <icon-mail />
             info@moscowboxing.ru
           </a>
@@ -45,9 +45,11 @@ import { footerNavData } from '@/data'
 
 <style lang="scss">
 .footer {
+  padding-block: 3.5rem 1rem;
+  background-color: var(--alt-bg);
   margin-top: auto;
   .copyright {
-    margin-block: 4rem 1rem;
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -88,13 +90,10 @@ import { footerNavData } from '@/data'
     }
   }
 }
-.footer__email {
+.footer__link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  white-space: nowrap;
-  transition: var(--transition-base);
-  color: var(--accent-color);
   svg {
     fill: none;
     stroke: var(--accent-color);
@@ -103,8 +102,8 @@ import { footerNavData } from '@/data'
 
   &:hover,
   &:focus {
-    color: var(--link-hover);
-    svg {
+    .icon {
+      fill: none;
       stroke: var(--link-hover);
     }
   }

@@ -5,7 +5,6 @@ import MySocial from '../ui/MySocial.vue'
 
 <template>
   <section class="section-padding hero" :style="{ backgroundImage: `url(${heroBg})` }">
-    >
     <div class="container">
       <div class="hero__inner">
         <div class="hero__general">

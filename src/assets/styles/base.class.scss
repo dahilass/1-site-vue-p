@@ -1,5 +1,7 @@
 .link {
   transition: var(--transition-base);
+  user-select: all;
+  white-space: nowrap;
 }
 .link:hover,
 .link:focus {

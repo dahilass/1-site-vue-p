@@ -40,6 +40,7 @@ import { headerNavData } from '@/data'
 .header {
   min-height: var(--header-height);
   padding-block: 5px 15px;
+  background-color: var(--alt-bg);
 }
 .header__title {
   margin-bottom: 0.1rem;

@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import { useModalStore } from '@/stores/modalStore'
+
+const modal = useModalStore()
+const open = (mode: 'comment' | 'training') => {
+  modal.openModal(mode)
+}
+
 defineOptions({
   name: 'my-button',
 })
 </script>
 
 <template>
-  <button class="btn" type="button">
+  <button class="btn" type="button" @click.prevent="open('comment')">
     <slot />
   </button>
 </template>

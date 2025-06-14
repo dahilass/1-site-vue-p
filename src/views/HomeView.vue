@@ -12,13 +12,13 @@ import AppVideo from '@/components/app/AppVideo.vue'
 <template>
   <main>
     <app-hero />
-    <app-about />
+    <app-about class="alt-bg" />
     <app-coach />
-    <app-button class="alt-bg">записаться на гостевое</app-button>
+    <app-button>записаться на гостевое</app-button>
     <app-subject />
-    <app-button class="alt-bg">ОНЛАЙН-ЗАПИСЬ</app-button>
-    <app-schedule />
     <app-button>ОНЛАЙН-ЗАПИСЬ</app-button>
+    <app-schedule class="alt-bg" />
+    <app-button class="alt-bg">ОНЛАЙН-ЗАПИСЬ</app-button>
     <app-video />
     <app-contact />
   </main>

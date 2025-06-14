@@ -59,8 +59,6 @@ import IconInst from '../icons/IconInst.vue'
 </template>
 
 <style lang="scss" scoped>
-.social {
-}
 .social__list {
   display: flex;
 }
@@ -68,9 +66,6 @@ import IconInst from '../icons/IconInst.vue'
   font-size: 1rem;
   line-height: 32px;
   margin-bottom: 0.7rem;
-}
-li {
-  // display: block;
 }
 a {
   display: inline-block;
