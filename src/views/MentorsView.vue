@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AppCoachPage from '@/components/app/AppCoachPage.vue'
+import AppPageMentors from '@/components/app/AppPageMentors.vue'
 </script>
 
 <template>
   <main>
-    <app-coach-page />
+    <app-page-mentors />
   </main>
 </template>
 

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import GymView from "@/views/GymView.vue";
-import CoachView from "@/views/CoachView.vue";
+import GymsView from "@/views/GymsView.vue";
+import MentorsView from "@/views/MentorsView.vue";
 
 const router = createRouter({
 
@@ -13,14 +13,14 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/gym',
+      path: '/gyms',
       name: 'gym',
-      component: GymView
+      component: GymsView
     },
     {
-      path: '/coach',
+      path: '/mentors',
       name: 'coach',
-      component: CoachView
+      component: MentorsView
     }
   ]
 })

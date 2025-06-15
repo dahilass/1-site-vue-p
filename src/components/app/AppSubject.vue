@@ -18,12 +18,14 @@ import IconDecor from '../icons/IconDecor.vue'
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .subject__gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2.5rem;
+}
+:deep(.subject__gallery) {
   .gallery__link {
     display: block;
     padding-block: 1rem;

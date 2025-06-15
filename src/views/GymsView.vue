@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import AppGym from '@/components/app/AppGym.vue'
+import AppPageGyms from '@/components/app/AppPageGyms.vue'
 </script>
 
 <template>
   <main>
-    <app-gym />
+    <app-page-gyms />
   </main>
 </template>
 

@@ -30,26 +30,15 @@ import { coachInfoArray } from '@/data'
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .coach {
   background-color: var(--alt-bg);
 }
 .coach__gallery {
-  display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  gap: 4rem 2rem;
-  @media (max-width: 1000px) {
-    color: aqua;
-    grid-template: 1fr / 1fr;
-    justify-items: initial;
-    gap: 1rem;
-  }
-  & .gallery__item-name {
+  :deep(.gallery__item-name) {
     margin-bottom: 1rem;
   }
-  & .gallery__item {
+  :deep(.gallery__item) {
     display: flex;
     align-items: center;
     max-width: 21rem;
@@ -108,6 +97,19 @@ import { coachInfoArray } from '@/data'
         justify-self: end;
       }
     }
+  }
+}
+.coach__gallery {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 4rem 2rem;
+  @media (max-width: 1000px) {
+    color: aqua;
+    grid-template: 1fr / 1fr;
+    justify-items: initial;
+    gap: 1rem;
   }
 }
 

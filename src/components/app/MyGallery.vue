@@ -66,8 +66,8 @@ defineProps<{
   font-family: 'One day';
 }
 .gallery__item-description {
-  display: -webkit-box;
   -webkit-box-orient: vertical;
+  display: -webkit-box;
   overflow: hidden;
   // -webkit-line-clamp: 3;
 }
