@@ -79,5 +79,7 @@ for (const unit of subjects) {
   unit.imgUrl = imagesArray[counter++]
 }
 
-export const headerNavData: NavItem[] = [{ title: 'О НАС', path: '/' }, { title: 'ЦЕНЫ', path: '/' }, { title: 'ТРЕНЕРЫ', path: '/' }, { title: 'РАСПИСАНИЕ', path: '/' }, { title: 'АРЕНДА', path: '/' }, { title: 'КОНТАКТЫ', path: '/' }]
+export const headerNavData: NavItem[] = [{ title: 'О НАС', path: '/about' }, { title: 'ЦЕНЫ', path: '/prices' }, { title: 'ТРЕНЕРЫ', path: '/mentors' }, { title: 'РАСПИСАНИЕ', path: '/schedule' }, { title: 'АРЕНДА', path: '/rent' }, { title: 'КОНТАКТЫ', path: '/contacts' }]
 export const footerNavData: NavItem[] = [{ title: 'Начинающим', path: '/' }, { title: 'Оплата', path: '/' }, { title: 'Интересное', path: '/' }, { title: 'Юридическая информация', path: '/' }, { title: 'Обучение', path: '/' }, { title: 'Возврат', path: '/' }, { title: 'Контакты', path: '/' }]
+
+

@@ -26,7 +26,7 @@ import { headerNavData } from '@/data'
           </router-link>
 
           <div class="header__contact">
-            <my-button class="btn btn--reversed">Купить абонемент</my-button>
+            <my-button to="/price" class="btn btn--reversed">Купить абонемент</my-button>
             <a class="link" href="tel:+74952013438">+ 7 (495) 201 34 38</a>
           </div>
         </div>

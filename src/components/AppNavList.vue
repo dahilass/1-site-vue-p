@@ -13,29 +13,9 @@ defineProps<{
   <nav class="nav">
     <ul class="nav-list">
       <li v-for="item of navItems" :key="item.path">
-        <router-link class="link" to="/">{{ item.title }}</router-link>
+        <router-link class="link" :to="item.path">{{ item.title }}</router-link>
       </li>
     </ul>
-    <!-- <ul class="nav-list">
-      <li>
-        <router-link class="link" to="/"> О НАС <icon-gloves /></router-link>
-      </li>
-      <li>
-        <router-link class="link" to="/">ЦЕНЫ</router-link>
-      </li>
-      <li>
-        <router-link class="link" to="/">ТРЕНЕРЫ</router-link>
-      </li>
-      <li>
-        <router-link class="link" to="/"> РАСПИСАНИЕ <icon-gloves /></router-link>
-      </li>
-      <li>
-        <router-link class="link" to="/"> АРЕНДА <icon-gloves /></router-link>
-      </li>
-      <li>
-        <router-link class="link" to="/">КОНТАКТЫ</router-link>
-      </li>
-    </ul> -->
   </nav>
 </template>
 

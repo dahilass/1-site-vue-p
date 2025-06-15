@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useModalStore } from '@/stores/modalStore'
+import { RouterLink } from 'vue-router'
 
 const modal = useModalStore()
 const open = (mode: 'comment' | 'training') => {
@@ -9,12 +10,19 @@ const open = (mode: 'comment' | 'training') => {
 defineOptions({
   name: 'my-button',
 })
+
+defineProps<{
+  mode?: 'comment' | 'training'
+}>()
 </script>
 
 <template>
-  <button class="btn" type="button" @click.prevent="open('comment')">
+  <button v-if="mode" class="btn" type="button" @click.prevent="open(mode)">
     <slot />
   </button>
+  <router-link v-else class="btn" to="">
+    <slot />
+  </router-link>
 </template>
 
 <style lang="scss" scoped>
@@ -28,6 +36,7 @@ defineOptions({
   text-transform: uppercase;
   font-size: 0.9rem;
   font-weight: 700px;
+  line-height: 1;
   &:hover,
   &:focus {
     background-color: var(--link-hover);

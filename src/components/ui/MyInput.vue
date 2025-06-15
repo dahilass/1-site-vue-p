@@ -5,11 +5,28 @@
 defineOptions({
   name: 'my-input',
 })
-defineProps({})
+defineProps<{
+  mode: 'input' | 'textarea'
+}>()
 </script>
 
 <template>
-  <input class="input" maxlength="42"/>
+  <input v-if="mode === 'input'" class="input" maxlength="42" />
+  <textarea v-else placeholder="Ваш отзыв" class="textarea" maxlength="400"></textarea>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.input,
+.textarea {
+  position: relative;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--main-color);
+  &::placeholder {
+    color: var(--main-color-op);
+  }
+}
+.textarea {
+  max-height: 8rem;
+  resize: none;
+}
+</style>

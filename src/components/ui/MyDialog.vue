@@ -23,6 +23,7 @@ const formData = reactive({
   surname: '',
   email: '',
   tel: '',
+  coach: '',
 })
 
 // defineEmits(['close'])
@@ -34,8 +35,9 @@ const formData = reactive({
       <p class="dialog__title">Заголовок</p>
       <!-- <div v-if="mode === 'training'">Training</div>
       <div v-if="mode === 'comment'">Comment</div> -->
-      <form id="form" class="dialog__form" @submit.prevent="">
+      <form v-if="mode === 'training'" id="form" class="dialog__form" @submit.prevent="">
         <my-input
+          :mode="'input'"
           v-model="formData.name"
           type="text"
           name="name"
@@ -44,6 +46,7 @@ const formData = reactive({
           placeholder="* Введите имя"
         />
         <my-input
+          :mode="'input'"
           v-model="formData.surname"
           type="text"
           name="surname"
@@ -51,6 +54,7 @@ const formData = reactive({
           placeholder="Введите фамилию"
         />
         <my-input
+          :mode="'input'"
           v-model="formData.email"
           type="email"
           name="email"
@@ -59,33 +63,56 @@ const formData = reactive({
           placeholder="* Введите e-mail"
         />
         <my-input
+          :mode="'input'"
           v-model="formData.tel"
           type="tel"
           name="tel"
           id=""
           placeholder="Введите номер телефона"
         />
-        <my-select :options="selectData.listOfPlaces"></my-select>
-        <my-select :options="selectData.listOfSubjects"></my-select>
-        <my-select :options="5"></my-select>
-        <!-- <select name="" id="" required>
-          <option class="placeholder" disabled selected hidden value="">Секция</option>
-          <option v-for="item of listOfPlaces" value="" :key="item">{{ item }}</option>
-        </select>
-        <select name="" id="" required>
-          <option class="placeholder" disabled selected hidden value="">Вид тренировки</option>
-          <option v-for="item of listOfSubjects" value="" :key="item">{{ item }}</option>
-        </select>
-        <select name="" id="" required>
-          <option class="placeholder" disabled selected hidden value="">Оценка</option>
-          <option v-for="item of 5" value="" :key="item">{{ item }}</option>
-        </select> -->
-        <textarea placeholder="Ваш отзыв" name="" id=""></textarea>
+        <my-select :options="selectData.listOfPlaces" />
+        <my-select :options="selectData.listOfSubjects" />
         <p class="dialog__info">
           *Заполняя форму, Вы <span class="marked">СОГЛАШАЕТЕСЬ</span> на обработку персональных
           данных.
         </p>
-        <my-button type="submit" value="Send">x</my-button>
+        <my-button type="submit" value="Send" @click="$emit('close')">x</my-button>
+      </form>
+      <form v-if="mode === 'comment'" id="form" class="dialog__form" @submit.prevent="">
+        <my-input
+          :mode="'input'"
+          v-model="formData.name"
+          type="text"
+          name="name"
+          id=""
+          required
+          placeholder="* Введите имя"
+        />
+        <my-input
+          :mode="'input'"
+          v-model="formData.email"
+          type="email"
+          name="email"
+          id=""
+          required
+          placeholder="* Введите e-mail"
+        />
+        <my-input
+          :mode="'input'"
+          v-model="formData.coach"
+          type="text"
+          name="coach"
+          id=""
+          placeholder="Тренер"
+        />
+        <my-select :options="selectData.listOfPlaces" />
+        <my-select :options="5" />
+        <my-input :mode="'textarea'" placeholder="Ваш отзыв" name="" id=""></my-input>
+        <p class="dialog__info">
+          *Заполняя форму, Вы <span class="marked">СОГЛАШАЕТЕСЬ</span> на обработку персональных
+          данных.
+        </p>
+        <my-button type="submit" value="Send" @click="$emit('close')">x</my-button>
       </form>
       <slot></slot>
     </div>
@@ -125,20 +152,12 @@ const formData = reactive({
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  input,
-  select,
-  textarea {
+  select {
     position: relative;
-    padding: 0.6rem 1.2rem;
-    border: 2px solid var(--main-color);
     option.placeholder,
     &::placeholder {
       color: var(--main-color-op);
     }
-  }
-  textarea {
-    height: 8rem;
-    resize: none;
   }
   select {
     color: var(--main-color-op);
