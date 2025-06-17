@@ -1,18 +1,32 @@
 // src/types.ts
 
-export type ImageInfo = {
-  id?: string
-  imgUrl?: string
-  name?: string
-  desc?: string
+// interface CardServerModel {
+//  id: string
+//  name: string
+//  desc: string
+//  createdAt: string
+//  updatedAt: string
+//  isVisible: boolean
+//  imgUrl: string
+//  imgMeta: {
+//    width: Number,
+//    height: Number,
+//    alt: String
+//    }
+//  tags?: String[]
+// }
+
+export type ImgInfo = {
+  imgUrl: string
+  id: string
+}
+export type CardBase = {
+  name: string
+  desc: string
+}
+export type CardInfo = ImgInfo & CardBase & {
   router?: string
 }
-
-// export type PersonInfo = {
-//   name: string
-//   desc: string
-//   path?: string
-// }
 
 export type NavItem = {
   title: string,
