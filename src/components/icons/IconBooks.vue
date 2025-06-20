@@ -2,7 +2,7 @@
 
 <template>
   <svg class="icon">
-    <use xlink:href="#icon-gloves" />
+    <use xlink:href="#icon-books" />
   </svg>
 </template>
 

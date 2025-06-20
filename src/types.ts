@@ -26,6 +26,7 @@ export type CardBase = {
 }
 export type CardInfo = ImgInfo & CardBase & {
   router?: string
+  coordinates?: [number, number]
 }
 
 export type NavItem = {

@@ -6,9 +6,19 @@
 .link:hover,
 .link:focus {
   color: var(--link-hover);
+  span {
+    color: var(--link-hover);
+  }
   .icon {
     fill: var(--link-hover);
   }
+}
+.icon__decor--left {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%) rotate(90deg);
+  left: 0;
+  top: 50%;
 }
 .section-padding {
   padding-block: 4rem;

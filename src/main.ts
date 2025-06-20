@@ -8,11 +8,15 @@ import App from './App.vue'
 import router from './router'
 import components from '@/components/ui'
 
+import placeholder from '@/assets/images/placeholder.jpg'
+// console.log(placeholder)
+
 import 'virtual:svg-icons-register'
 
 const app = createApp(App)
 
 components.forEach(component => app.component(component.name as string, component))
+app.provide('placeholder', placeholder as string)
 
 app.use(createPinia())
 

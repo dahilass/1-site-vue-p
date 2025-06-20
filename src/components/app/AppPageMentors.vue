@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { coachInfoArray } from '@/data'
-import MyGallery from './MyGallery.vue'
-import MyInput from '../ui/MyInput.vue'
+import MyGallery from '../ui/gallery/MyGallery.vue'
+
+defineProps<{
+  search: boolean
+}>()
 </script>
 
 <template>
@@ -10,9 +13,8 @@ import MyInput from '../ui/MyInput.vue'
       <div class="mentors__inner">
         <div class="test">
           <my-heading>Тренеры</my-heading>
-          <my-input :mode="'input'" placeholder="Поиск" class="mentors__input"></my-input>
         </div>
-        <my-gallery :images="coachInfoArray" :line-clamp="4" class="mentors__gallery"></my-gallery>
+        <my-gallery :type="2" :cards="coachInfoArray" class="mentors__gallery"></my-gallery>
       </div>
     </div>
   </section>
@@ -25,9 +27,6 @@ import MyInput from '../ui/MyInput.vue'
     justify-content: space-between;
     gap: 1rem;
   }
-}
-.mentors__input {
-  align-self: start;
 }
 .mentors__inner {
   :deep(.gallery) {

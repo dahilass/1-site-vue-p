@@ -27,8 +27,7 @@ defineProps<{
 
 <style lang="scss" scoped>
 .btn {
-  min-width: 12rem;
-  padding: 16px 20px;
+  padding: 0.8rem 1rem;
   border: 2px solid var(--accent-color);
   background-color: var(--accent-color);
   transition: var(--transition-base);
@@ -42,9 +41,11 @@ defineProps<{
     background-color: var(--link-hover);
   }
 }
-.btn--reversed {
-  min-width: 10rem;
+.btn--blank {
   background-color: transparent;
   text-transform: none;
+}
+.btn--mwidth {
+  min-width: 12rem;
 }
 </style>

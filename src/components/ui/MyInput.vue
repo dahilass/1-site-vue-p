@@ -24,9 +24,15 @@ defineProps<{
   &::placeholder {
     color: var(--main-color-op);
   }
+  &:placeholder-shown {
+    border-color: var(--accent-color);
+  }
 }
 .textarea {
   max-height: 8rem;
   resize: none;
+}
+.search {
+  align-self: start;
 }
 </style>

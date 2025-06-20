@@ -14,4 +14,13 @@ defineOptions({
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.section__title {
+  white-space: wrap;
+}
+.icon {
+  @media (max-width: 550px) {
+    display: none;
+  }
+}
+</style>

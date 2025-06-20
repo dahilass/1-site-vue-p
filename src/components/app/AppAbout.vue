@@ -3,11 +3,11 @@ import galleryImage1 from '@/assets/images/about/1.jpg'
 import galleryImage2 from '@/assets/images/about/2.jpg'
 import galleryImage3 from '@/assets/images/about/3.jpg'
 
-import MyGallery from './MyGallery.vue'
+import MyGallery from '../ui/gallery/MyGallery.vue'
 
-import type { ImageInfo } from '@/types.ts'
+import type { CardInfo } from '@/types.ts'
 
-const galleryArray: ImageInfo[] = [
+const galleryArray: Pick<CardInfo, 'id' | 'imgUrl'>[] = [
   { id: crypto.randomUUID(), imgUrl: galleryImage1 },
   { id: crypto.randomUUID(), imgUrl: galleryImage2 },
   { id: crypto.randomUUID(), imgUrl: galleryImage3 },
@@ -29,7 +29,7 @@ const galleryArray: ImageInfo[] = [
           собой задачу - привлекать к спорту молодежь, отрывать их от пагубного влияния улицы и
           делать из них Чемпионов!
         </p>
-        <my-gallery :images="galleryArray" class="about__gallery gallery--overlay" />
+        <my-gallery :type="1" :cards="galleryArray" class="about__gallery gallery--overlay" />
       </div>
     </div>
   </section>

@@ -80,8 +80,6 @@ for (const person of coachInfoArray) {
   person.imgUrl = imagesArray[counter++]
 }
 
-console.log(imagesArray)
-
 export const subjectsInfo: CardInfo[] = [{
   name: 'ТАЙСКИЙ БОКС',
   desc: 'Боевое искусство Таиланда, произошедшее из древнего тайского боевого искусства муай боран и схожее с другими индокитайскими боевыми искусствами Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
@@ -112,62 +110,70 @@ for (const unit of subjectsInfo) {
 export const headerNavData: NavItem[] = [{ title: 'О НАС', path: '/about' }, { title: 'ЦЕНЫ', path: '/prices' }, { title: 'ТРЕНЕРЫ', path: '/mentors' }, { title: 'РАСПИСАНИЕ', path: '/schedule' }, { title: 'АРЕНДА', path: '/rent' }, { title: 'КОНТАКТЫ', path: '/contacts' }]
 export const footerNavData: NavItem[] = [{ title: 'Начинающим', path: '/' }, { title: 'Оплата', path: '/' }, { title: 'Интересное', path: '/' }, { title: 'Юридическая информация', path: '/' }, { title: 'Обучение', path: '/' }, { title: 'Возврат', path: '/' }, { title: 'Контакты', path: '/' }]
 
-export const gymInfoArray: (CardInfo & { coordinates: [number, number] })[] = [
+export const gymInfoArray: (CardInfo)[] = [
   {
     name: 'СТРОГИНО',
     desc: 'ул. Маршала Катукова, 22к2, 4 этаж',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.407546, 55.805386]
+    coordinates: [37.407546, 55.805386],
+    router: '/'
   },
   {
     name: 'СОЛНЦЕВО-НОВОПЕРЕДЕЛКИНО',
     desc: 'Боровское шоссе, 43, 1 этаж',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.356818, 55.639441]
+    coordinates: [37.356818, 55.639441],
+    router: '/'
   },
   {
     name: 'МАРЬИНО',
     desc: 'м. Марьино, Луговой проезд, д.5, 4 этаж',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.752993, 55.648921]
+    coordinates: [37.752993, 55.648921],
+    router: '/'
   },
   {
     name: 'НОВОКОСИНО-РЕУТОВ',
     desc: 'м. Новокосино, г. Реутов, ул. Октября, 2Б',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.848790, 55.749192]
+    coordinates: [37.848790, 55.749192],
+    router: '/'
   },
   {
     name: 'БУТОВО',
     desc: 'м.Скобелевская, ул. Изюмская, 22к3',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.557197, 55.551940]
+    coordinates: [37.557197, 55.551940],
+    router: '/'
   },
   {
     name: 'ПЕРОВО',
     desc: 'м. Перово, 1-ая Владимирская ул., 10Б',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.771427, 55.757997]
+    coordinates: [37.771427, 55.757997],
+    router: '/'
   },
   {
     name: 'ЛЕНИНСКИЙ ПРОСПЕКТ',
     desc: 'м.Ленинский проспект, Площадь Гагарина Академическая, 5-й Донской проезд, д. 15, стр. 42',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.597495, 55.706031]
+    coordinates: [37.597495, 55.706031],
+    router: '/'
   },
   {
     name: 'КАХОВСКАЯ',
     desc: 'м. Каховская, ул. Большая Юшуньская, д. 14, к. 3',
     imgUrl: '/',
     id: crypto.randomUUID(),
-    coordinates: [37.590461, 55.647950]
+    coordinates: [37.590461, 55.647950],
+    router: '/'
   }
 ]
 
@@ -199,4 +205,5 @@ for (const img of aboutImgArray) {
 //   })
 // }
 
+// export const wiki
 

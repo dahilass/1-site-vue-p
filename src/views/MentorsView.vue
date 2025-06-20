@@ -4,7 +4,7 @@ import AppPageMentors from '@/components/app/AppPageMentors.vue'
 
 <template>
   <main>
-    <app-page-mentors />
+    <app-page-mentors :search="true" />
   </main>
 </template>
 

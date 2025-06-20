@@ -2,6 +2,7 @@
 import { shallowRef } from 'vue'
 
 import type { YMap } from '@yandex/ymaps3-types'
+import { gymInfoArray } from '@/data'
 
 import {
   YandexMap,
@@ -20,7 +21,7 @@ const map = shallowRef<null | YMap>(null)
       :settings="{
         location: {
           center: [37.617644, 55.755819],
-          zoom: 9.3,
+          zoom: 9.45,
         },
         theme: 'dark',
       }"
@@ -29,7 +30,11 @@ const map = shallowRef<null | YMap>(null)
     >
       <yandex-map-default-scheme-layer />
       <yandex-map-default-features-layer />
-      <yandex-map-default-marker :settings="{ coordinates: [37.559586, 55.552149] }" />
+      <yandex-map-default-marker
+        v-for="item of gymInfoArray"
+        :key="item.id"
+        :settings="{ coordinates: item.coordinates }"
+      />
     </yandex-map>
   </section>
 </template>
