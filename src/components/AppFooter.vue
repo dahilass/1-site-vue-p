@@ -45,6 +45,7 @@ import { footerNavData } from '@/data'
 
 <style lang="scss">
 .footer {
+  z-index: 500;
   padding-block: 3.5rem 1rem;
   background-color: var(--alt-bg);
   margin-top: auto;

@@ -26,7 +26,7 @@ import { headerNavData } from '@/data'
           </router-link>
 
           <div class="header__contact">
-            <my-button to="/price" class="btn btn--blank">Купить абонемент</my-button>
+            <my-button to="/price" class="btn--blank">Купить абонемент</my-button>
             <a class="link" href="tel:+74952013438">+ 7 (495) 201 34 38</a>
           </div>
         </div>
@@ -38,6 +38,7 @@ import { headerNavData } from '@/data'
 
 <style lang="scss">
 .header {
+  z-index: 500;
   min-height: var(--header-height);
   padding-block: 5px 15px;
   background-color: var(--alt-bg);
