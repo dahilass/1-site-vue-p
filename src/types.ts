@@ -32,6 +32,6 @@ export type CardInfo = ImgInfo & CardBase & {
 export type NavItem = {
   title: string,
   path: string,
-  complex?: boolean
+  complex?: boolean,
   dropdown?: NavItem[]
 }

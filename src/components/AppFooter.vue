@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
-import AppNavList from './AppNavList.vue'
+import AppNavList from './nav/MyNavList.vue'
 import MyLogo from './ui/MyLogo.vue'
 import MySocial from './ui/MySocial.vue'
 import IconMail from './icons/IconMail.vue'
