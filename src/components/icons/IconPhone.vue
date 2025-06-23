@@ -6,4 +6,9 @@
   </svg>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.icon {
+  width: 40px;
+  height: 40px;
+}
+</style>

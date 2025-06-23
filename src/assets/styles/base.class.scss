@@ -1,6 +1,10 @@
 .invisible {
   visibility: hidden;
 }
+.translate-top {
+  transform: translateY(-100%);
+}
+
 .link {
   display: block;
   transition: var(--transition-base);
