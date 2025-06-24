@@ -3,13 +3,13 @@ import logo from '@/assets/images/header-logo.png'
 </script>
 
 <template>
-  <div class="logo-box">
-    <img class="logo" :src="logo" alt="logo" />
+  <div class="logo__box">
+    <img class="logo__img" :src="logo" alt="logo" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.logo {
+.logo__img {
   aspect-ratio: 1/1;
   width: 100%;
   height: 100%;
@@ -17,5 +17,8 @@ import logo from '@/assets/images/header-logo.png'
   max-height: 80px;
   min-width: 40px;
   min-height: 40px;
+  @media (max-width: 769px) {
+    max-width: 54px;
+  }
 }
 </style>

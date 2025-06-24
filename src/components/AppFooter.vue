@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
-import AppNavList from './AppNavList.vue'
+import AppNavList from './nav/MyNavList.vue'
 import MyLogo from './ui/MyLogo.vue'
 import MySocial from './ui/MySocial.vue'
 import IconMail from './icons/IconMail.vue'
@@ -19,10 +19,10 @@ import { footerNavData } from '@/data'
             <router-link to="/">
               <my-logo />
             </router-link>
-            <div class="footer__name">
+            <router-link to="/" class="footer__name">
               <p>БОКСЕРСКИЙ КЛУБ <span class="marked">MOSCOWBOXING</span></p>
               <!-- <icon-decor></icon-decor> -->
-            </div>
+            </router-link>
           </div>
           <app-nav-list :nav-items="footerNavData" class="footer__nav" />
         </div>
@@ -45,6 +45,7 @@ import { footerNavData } from '@/data'
 
 <style lang="scss">
 .footer {
+  z-index: 500;
   padding-block: 3.5rem 1rem;
   background-color: var(--alt-bg);
   margin-top: auto;

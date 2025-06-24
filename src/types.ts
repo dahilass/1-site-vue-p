@@ -22,7 +22,7 @@ export type ImgInfo = {
 }
 export type CardBase = {
   name: string
-  desc: string
+  desc?: string
 }
 export type CardInfo = ImgInfo & CardBase & {
   router?: string
@@ -32,4 +32,6 @@ export type CardInfo = ImgInfo & CardBase & {
 export type NavItem = {
   title: string,
   path: string,
+  complex?: boolean,
+  dropdown?: NavItem[]
 }

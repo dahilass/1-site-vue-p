@@ -6,8 +6,13 @@ import { watch } from 'vue'
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
 import MyDialog from './components/ui/MyDialog.vue'
+import { useMenuStore } from './stores/menuStore'
+// import { storeToRefs } from 'pinia'
 
 const modal = useModalStore()
+const menuStore = useMenuStore()
+
+// const { openIndex } = storeToRefs(menuStore)
 
 watch(
   () => modal.isOpen,
@@ -18,7 +23,7 @@ watch(
 </script>
 
 <template>
-  <div class="wrapper">
+  <div class="wrapper" @click="menuStore.toggle(null)">
     <app-header />
     <my-dialog
       v-if="modal.isOpen && modal.mode !== null"

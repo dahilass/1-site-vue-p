@@ -1,5 +1,15 @@
 import type { CardInfo, NavItem, ImgInfo } from "./types";
 
+
+const aboutDropdown = [{ title: 'новости', path: '/news' }, { title: 'обучение боксу', path: '/training' }, { title: 'соревнования', path: '/competitions' }, { title: 'спортсмены', path: '/sportsmen' }, { title: 'отзывы', path: '/comments' }, { title: 'сборы', path: '/bootcamps' }, { title: 'интересное', path: '/wiki' }],
+  scheduleDropdown = [{ title: 'тренировки', path: '/schedule' }, { title: 'календарь соревнований', path: '/competitions-calendar' }, { title: 'расписание тренеров', path: '/coach-calendar' }]
+
+export const headerNavData: NavItem[] = [{ title: 'О НАС', path: '/about', dropdown: aboutDropdown }, { title: 'ЦЕНЫ', path: '/prices' }, { title: 'ТРЕНЕРЫ', path: '/mentors' }, { title: 'РАСПИСАНИЕ', path: '/schedule', dropdown: scheduleDropdown }, { title: 'КОНТАКТЫ', path: '/contacts' }]
+export const footerNavData: NavItem[] = [{ title: 'Начинающим', path: '/' }, { title: 'Оплата', path: '/' }, { title: 'Интересное', path: '/' }, { title: 'Юридическая информация', path: '/' }, { title: 'Обучение', path: '/' }, { title: 'Возврат', path: '/' }, { title: 'Контакты', path: '/' }]
+
+// about: спортсмены, отзывы, сборы?, новости?, интересное, обучение боксу?
+// schedule: расписание, соревнования, календарь соревнований
+
 const coachImages: Record<string, string> = import.meta.glob('@/assets/images/coach/*.jpg', {
   eager: true,
   // as: 'url'
@@ -106,9 +116,6 @@ imagesArray = Object.values(subjectImages)
 for (const unit of subjectsInfo) {
   unit.imgUrl = imagesArray[counter++]
 }
-
-export const headerNavData: NavItem[] = [{ title: 'О НАС', path: '/about' }, { title: 'ЦЕНЫ', path: '/prices' }, { title: 'ТРЕНЕРЫ', path: '/mentors' }, { title: 'РАСПИСАНИЕ', path: '/schedule' }, { title: 'АРЕНДА', path: '/rent' }, { title: 'КОНТАКТЫ', path: '/contacts' }]
-export const footerNavData: NavItem[] = [{ title: 'Начинающим', path: '/' }, { title: 'Оплата', path: '/' }, { title: 'Интересное', path: '/' }, { title: 'Юридическая информация', path: '/' }, { title: 'Обучение', path: '/' }, { title: 'Возврат', path: '/' }, { title: 'Контакты', path: '/' }]
 
 export const gymInfoArray: (CardInfo)[] = [
   {

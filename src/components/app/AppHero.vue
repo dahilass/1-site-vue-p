@@ -16,7 +16,7 @@ import MySocial from '../ui/MySocial.vue'
             <a href="tel:+74951049628">+7 (495) 104-96-28</a>
             <address>м.Скобелевская, ул. Изюмская, 22к3</address>
           </div>
-          <my-button class="btn hero__btn btn--mwidth" :mode="'training'">Онлайн запись</my-button>
+          <my-button class="hero__btn btn--mwidth" :mode="'training'">Онлайн запись</my-button>
         </div>
         <my-social class="hero__social" />
       </div>

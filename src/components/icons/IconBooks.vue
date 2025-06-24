@@ -10,5 +10,7 @@
 svg {
   display: block;
   align-self: center;
+  fill: white;
+  stroke: black;
 }
 </style>

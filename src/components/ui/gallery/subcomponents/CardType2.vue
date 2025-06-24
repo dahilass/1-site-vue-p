@@ -26,7 +26,7 @@ defineProps<{
       <p class="card__desc" v-if="data.desc">
         {{ data.desc }}
       </p>
-      <router-link v-if="data.router" :to="data.router" class="card__link">Читать...</router-link>
+      <router-link :to="data.id" class="card__link">Читать...</router-link>
     </article>
   </li>
 </template>
@@ -54,7 +54,9 @@ defineProps<{
     .card__img {
       margin-right: -2rem;
     }
-
+    .card__link {
+      margin-left: auto;
+    }
     @media (max-width: 1000px) {
       justify-self: end;
     }
@@ -72,6 +74,8 @@ defineProps<{
   margin-bottom: 1rem;
 }
 .card__info {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   max-width: 12.5rem;
   min-width: 10rem;
@@ -80,5 +84,8 @@ defineProps<{
   padding: 2rem;
   border: 2px solid var(--accent-color);
   background-color: var(--accent-color-op);
+}
+.card__link {
+  margin-top: auto;
 }
 </style>

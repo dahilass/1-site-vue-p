@@ -1,0 +1,5 @@
+@mixin hover-card {
+  scale: 1.02;
+  color: var(--link-hover);
+  box-shadow: 4px 4px 4px var(--link-hover);
+}
