@@ -26,13 +26,20 @@ defineProps<{
       <p class="card__desc" v-if="data.desc">
         {{ data.desc }}
       </p>
-      <router-link v-if="data.router" :to="data.router" class="card__link">Читать...</router-link>
+      <p class="card__link-desc">Читать...</p>
+      <router-link :to="data.id" class="card__link"></router-link>
     </article>
   </li>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/mixins';
+
 .card {
+  box-shadow: 2px 2px 4px var(--accent-color);
+  transition:
+    scale 0.3s linear,
+    box-shadow 0.3s linear;
   &::after {
     content: '';
     inset: 0;
@@ -43,35 +50,41 @@ defineProps<{
     background-color: var(--overlay-image);
     z-index: 1;
   }
+  &:hover,
+  &:focus {
+    @include hover-card;
+  }
 }
 .card__info {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   width: 100%;
   height: 100%;
-  padding-top: 2rem;
+  padding-top: 1.25rem;
   padding-inline: 2rem;
   z-index: 10;
   top: 0;
   position: absolute;
+  justify-content: space-evenly;
 }
 .card__name {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .card__desc {
-  text-shadow: 0 0 1px var(--main-color);
   max-width: 16rem;
+  margin-bottom: 0.5rem;
 }
 .card__img {
   opacity: 0.75;
 }
 .card__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: block;
-  padding-block: 1rem;
-  color: var(--red);
-  &:hover,
-  &:focus {
-    color: var(--link-hover);
-  }
 }
 </style>

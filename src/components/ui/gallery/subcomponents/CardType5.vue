@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ImgInfo } from '@/types'
 import type { Component } from 'vue'
+import { RouterLink } from 'vue-router'
 
 defineProps<{
   data: ImgInfo & { name: string; icon: Component }
@@ -11,11 +12,15 @@ defineProps<{
   <li class="card">
     <component :is="data.icon" />
     <h3>{{ data.name }}</h3>
+    <router-link :to="data.id" class="card__link"></router-link>
   </li>
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/mixins';
+
 .card {
+  position: relative;
   max-width: 13rem;
   aspect-ratio: 1/1;
   flex-direction: column;
@@ -29,5 +34,22 @@ defineProps<{
   font-family: 'One day', sans-serif;
   font-size: 1.2rem;
   background-color: var(--alt-bg);
+
+  box-shadow: 4px 4px 4px var(--accent-color);
+  transition: scale 0.3s linear;
+  &:hover,
+  &:focus {
+    @include hover-card;
+  }
+}
+.card__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding-block: 1rem;
+  color: var(--red);
 }
 </style>

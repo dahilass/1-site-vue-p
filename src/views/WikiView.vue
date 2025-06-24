@@ -4,8 +4,10 @@ import AppLibrary from '@/components/app/AppLibrary.vue'
 </script>
 
 <template>
-  <app-topics></app-topics>
-  <app-library></app-library>
+  <main>
+    <app-topics></app-topics>
+    <app-library></app-library>
+  </main>
 </template>
 
 <style lang="scss" scoped></style>
