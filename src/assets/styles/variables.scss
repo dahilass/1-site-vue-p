@@ -13,7 +13,7 @@
   --transition-base: 0.3s linear all;
   /*COLORS*/
 
-  --white: #fcdfff;
+  --white: #fff;
   --accent-color: #f24738;
   --accent-color-op: #f2473838;
   --hover: green;
@@ -30,4 +30,14 @@
   //   --alt-bg: #dedede;
   //   --main-color: #000000;
   // }
+}
+.light {
+  --main-bg: #eaeaea;
+  --alt-bg: #dcdcdc;
+  --main-color: #232323;
+  --main-color-op: rgba(241, 240, 240, 0.65);
+  --overlay-image: rgba(232, 232, 232, 0.75);
+
+  --accent-color: #009cec;
+  --accent-color-op: #009dec6d;
 }

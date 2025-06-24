@@ -30,6 +30,9 @@
 }
 .section-padding {
   padding-block: 4rem;
+  &:first-child {
+    padding-top: 6rem;
+  }
 }
 .section__heading {
   margin-bottom: 4rem;
