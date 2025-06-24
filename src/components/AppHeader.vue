@@ -22,6 +22,8 @@ const handleScroll = function () {
     const currentScrollY = window.scrollY
     hiddenOnScroll.value = currentScrollY > lastScrollY && currentScrollY > 100
     lastScrollY = currentScrollY
+  } else {
+    hiddenOnScroll.value = false
   }
 }
 
@@ -34,7 +36,6 @@ onBeforeUnmount(() => {
 
 function onMenuToggled(value: boolean) {
   isMenuOpen.value = value
-  console.log('toggle:', value)
 }
 </script>
 
@@ -83,7 +84,7 @@ function onMenuToggled(value: boolean) {
   // min-height: var(--header-height);
   padding-block: 5px 15px;
   background-color: var(--alt-bg);
-  box-shadow: 0 3px 9px 1px gray;
+  box-shadow: 0px 0px 5px 0px var(--main-color);
   .logo__name {
     display: none;
   }
