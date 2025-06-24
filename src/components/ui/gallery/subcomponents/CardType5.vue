@@ -17,8 +17,7 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/mixins';
-
+@use '@/assets/styles/mixins' as mixins;
 .card {
   position: relative;
   max-width: 13rem;
@@ -39,7 +38,7 @@ defineProps<{
   transition: scale 0.3s linear;
   &:hover,
   &:focus {
-    @include hover-card;
+    @include mixins.hover-card;
   }
 }
 .card__link {

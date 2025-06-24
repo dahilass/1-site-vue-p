@@ -15,7 +15,6 @@ const menuStore = useMenuStore()
 const props = defineProps<{ navItems: NavItem[] }>()
 const nav = reactive(props.navItems.map((el) => Object.assign(el, { isActive: false })))
 
-console.log(nav)
 </script>
 
 <template>

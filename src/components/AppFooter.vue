@@ -19,10 +19,10 @@ import { footerNavData } from '@/data'
             <router-link to="/">
               <my-logo />
             </router-link>
-            <div class="footer__name">
+            <router-link to="/" class="footer__name">
               <p>БОКСЕРСКИЙ КЛУБ <span class="marked">MOSCOWBOXING</span></p>
               <!-- <icon-decor></icon-decor> -->
-            </div>
+            </router-link>
           </div>
           <app-nav-list :nav-items="footerNavData" class="footer__nav" />
         </div>

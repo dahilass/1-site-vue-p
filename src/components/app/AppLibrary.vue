@@ -30,9 +30,12 @@ const arr: (ImgInfo & { name: string; icon: Component })[] = [
 
 <style lang="scss" scoped>
 .library__gallery {
-  display: grid;
+  display: flex;
   gap: 3rem;
-  grid-template-columns: repeat(auto-fit, minmax(8rem, 13rem));
   justify-content: center;
+  flex-wrap: wrap;
+}
+:deep(.icon) {
+  max-width: 6rem;
 }
 </style>

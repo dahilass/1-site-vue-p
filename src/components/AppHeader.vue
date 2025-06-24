@@ -189,8 +189,8 @@ function onMenuToggled(value: boolean) {
   padding: 0.5rem;
 }
 .header__decor-box {
-  border-right: 2px solid var(--white);
-  border-left: 2px solid var(--white);
+  border-right: 2px solid var(--main-color);
+  border-left: 2px solid var(--main-color);
   display: inline-flex;
   justify-content: start;
   & svg:last-child {

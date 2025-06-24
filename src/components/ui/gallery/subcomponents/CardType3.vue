@@ -33,8 +33,7 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/mixins';
-
+@use '@/assets/styles/mixins' as mixins;
 .card {
   box-shadow: 2px 2px 4px var(--accent-color);
   transition:
@@ -52,7 +51,7 @@ defineProps<{
   }
   &:hover,
   &:focus {
-    @include hover-card;
+    @include mixins.hover-card;
   }
 }
 .card__info {
