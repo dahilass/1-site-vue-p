@@ -28,7 +28,7 @@ import gif from '@/assets/media/404.gif'
   flex: 1;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 95%;
+  background-position: 55% 95%;
   background-blend-mode: color;
   background-color: rgba(0, 0, 0, 0.407);
   // .container {
