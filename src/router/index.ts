@@ -4,6 +4,8 @@ import GymsView from "@/views/GymsView.vue";
 import MentorsView from "@/views/MentorsView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
 import WikiView from "@/views/WikiView.vue";
+import CardPage from "@/pages/CardPage.vue";
+import PrivatePolicyView from "@/views/PrivatePolicyView.vue";
 
 const routes = createRouter({
 
@@ -25,10 +27,21 @@ const routes = createRouter({
       component: MentorsView
     },
     {
+      path: '/mentors/:id',
+      name: 'mentors',
+      component: CardPage
+    },
+    {
       path: '/wiki',
       name: 'wiki',
       component: WikiView
     },
+    {
+      path: '/private-policy',
+      name: 'private-policy',
+      component: PrivatePolicyView
+    },
+
 
     // 404
     {
