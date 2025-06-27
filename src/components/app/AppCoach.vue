@@ -5,15 +5,13 @@ import IconDecor from '../icons/IconDecor.vue'
 // import type { ImageInfo } from '@/types'
 
 import { coachInfoArray } from '@/data'
-
-console.log(coachInfoArray)
 </script>
 
 <template>
   <section class="coach section-padding">
     <div class="container">
       <div class="coach__inner">
-        <my-heading class="coach__heading">Тренеры</my-heading>
+        <my-heading class="coach__heading">Наши Тренеры</my-heading>
         <!-- <my-gallery :images="coachInfoArray" class="coach__gallery gallery--decorated" /> -->
         <my-gallery :type="2" :cards="coachInfoArray" class="coach__gallery">
           <template #default>
@@ -27,16 +25,16 @@ console.log(coachInfoArray)
 
 <style lang="scss" scoped>
 .coach__gallery {
-  display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  max-width: 60rem;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   gap: 4rem 2rem;
   @media (max-width: 1000px) {
-    color: aqua;
-    grid-template: 1fr / 1fr;
-    justify-items: initial;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
 .coach__icon {
@@ -46,13 +44,25 @@ console.log(coachInfoArray)
   top: 50%;
 }
 :deep(.card) {
-  &:nth-child(even) .coach__icon {
-    right: 0;
-    transform: translate(49.5%, -50%) rotate(90deg);
+  align-items: center;
+  &:nth-child(even) {
+    @media (max-width: 1000px) {
+      margin-right: -9rem;
+    }
+    .coach__icon {
+      right: 0;
+      transform: translate(49.5%, -50%) rotate(90deg);
+    }
   }
-  &:nth-child(odd) .coach__icon {
-    left: 0;
-    transform: translate(-49.5%, -50%) rotate(90deg);
+  &:nth-child(odd) {
+    @media (max-width: 1000px) {
+      margin-left: -9rem;
+    }
+
+    .coach__icon {
+      left: 0;
+      transform: translate(-49.5%, -50%) rotate(90deg);
+    }
   }
 }
 </style>

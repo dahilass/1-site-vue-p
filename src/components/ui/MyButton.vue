@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 
 const modal = useModalStore()
 const open = (mode: 'comment' | 'training') => {
-  modal.openModal(mode)
+  modal.openModalMode(mode)
 }
 
 defineOptions({
@@ -27,10 +27,12 @@ defineProps<{
 
 <style lang="scss" scoped>
 .btn {
+  display: inline-flex;
+  justify-content: center;
   padding: 0.8rem 1rem;
   border: 2px solid var(--accent-color);
   background-color: var(--accent-color);
-  transition: var(--transition-base);
+  transition: 0.25s linear all;
   cursor: pointer;
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -38,7 +40,11 @@ defineProps<{
   line-height: 1;
   &:hover,
   &:focus {
+    border: 2px solid var(--link-hover);
     background-color: var(--link-hover);
+  }
+  &:not(&--blank) {
+    color: var(--btn-color);
   }
 }
 .btn--blank {

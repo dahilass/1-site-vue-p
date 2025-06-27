@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavItem } from '@/types'
+import type { NavItem } from '@/types/types'
 import { RouterLink } from 'vue-router'
 
 defineProps<{

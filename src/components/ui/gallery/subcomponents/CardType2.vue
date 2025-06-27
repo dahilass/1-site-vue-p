@@ -1,12 +1,12 @@
 <script setup lang="ts">
 // COACH SECTION
-import type { CardInfo } from '@/types'
+import type { PersonInfo } from '@/types/types'
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 const loaded = ref(true)
 
 defineProps<{
-  data: CardInfo
+  data: PersonInfo
 }>()
 </script>
 
@@ -26,7 +26,7 @@ defineProps<{
       <p class="card__desc" v-if="data.desc">
         {{ data.desc }}
       </p>
-      <router-link :to="data.id" class="card__link">Читать...</router-link>
+      <router-link to="/" class="card__link link">Читать...</router-link>
     </article>
   </li>
 </template>
@@ -56,9 +56,6 @@ defineProps<{
     }
     .card__link {
       margin-left: auto;
-    }
-    @media (max-width: 1000px) {
-      justify-self: end;
     }
   }
 }

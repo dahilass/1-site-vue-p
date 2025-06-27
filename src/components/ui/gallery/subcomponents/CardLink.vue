@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // SUBJECT SECTION
-import type { CardInfo } from '@/types'
+import type { CardInfo } from '@/types/types'
 import { ref } from 'vue'
 
 const loaded = ref(true)
@@ -21,12 +21,12 @@ defineProps<{
       @load="loaded = true"
       @error="loaded = false"
     />
-    <article v-if="data.name || data.desc" class="card__info">
-      <h3 class="card__name" v-if="data.name">{{ data.name }}</h3>
+    <article v-if="data.title || data.desc" class="card__info">
+      <h3 class="card__name" v-if="data.title">{{ data.title }}</h3>
       <p class="card__desc" v-if="data.desc">
         {{ data.desc }}
       </p>
-      <p class="card__link-desc">Читать...</p>
+      <p class="card__link-desc">Подробнее...</p>
       <router-link :to="data.id" class="card__link"></router-link>
     </article>
   </li>
@@ -35,6 +35,8 @@ defineProps<{
 <style lang="scss" scoped>
 @use '@/assets/styles/mixins' as mixins;
 .card {
+  max-width: 15rem;
+  width: 100%;
   box-shadow: 2px 2px 4px var(--accent-color);
   transition:
     scale 0.3s linear,
@@ -76,6 +78,9 @@ defineProps<{
   margin-bottom: 0.5rem;
 }
 .card__img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/2;
   opacity: 0.75;
 }
 .card__link {

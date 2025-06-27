@@ -4,13 +4,14 @@ import { reactive } from 'vue'
 
 import MyInput from './MyInput.vue'
 import MySelect from './MySelect.vue'
+import type { ModalMode } from '@/types/types'
 
 defineOptions({
   name: 'my-dialog',
 })
 
 defineProps<{
-  mode: 'comment' | 'training' | null
+  mode: ModalMode
 }>()
 
 const selectData = {

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import CardType1 from './subcomponents/CardType1.vue'
+import CardImg from './subcomponents/CardImg.vue'
 import CardType2 from './subcomponents/CardType2.vue'
-import CardType3 from './subcomponents/CardType3.vue'
-import CardType4 from './subcomponents/CardType4.vue'
-import CardType5 from './subcomponents/CardType5.vue'
+import CardLink from './subcomponents/CardLink.vue'
+import CardGym from './subcomponents/CardGym.vue'
+import CardWiki from './subcomponents/CardWiki.vue'
+import CardTicket from './subcomponents/CardTicket.vue'
 
-import type { CardInfo, ImgInfo } from '@/types'
+import type { CardInfo, ImgInfo, Img, GymInfo, PersonInfo } from '@/types/types'
 import type { Component } from 'vue'
 
 import { inject, computed } from 'vue'
@@ -17,15 +18,16 @@ if (!placeholder) {
 
 const props = defineProps<{
   type: number
-  data: CardInfo | ImgInfo
+  data: CardInfo | ImgInfo | Img | GymInfo | PersonInfo
 }>()
 
 const componentMap: Record<number, Component> = {
-  1: CardType1,
+  1: CardImg,
   2: CardType2,
-  3: CardType3,
-  4: CardType4,
-  5: CardType5,
+  3: CardLink,
+  4: CardGym,
+  5: CardWiki,
+  6: CardTicket,
 }
 
 const currentComponent = computed(() => componentMap[props.type])
@@ -40,10 +42,7 @@ const currentComponent = computed(() => componentMap[props.type])
 <style lang="scss" scoped>
 .card {
   position: relative;
-  display: flex;
-  align-items: center;
-  // max-width: 21rem;
-  // max-height: 12.5rem;
+  display: inline-flex;
   gap: 0.5rem;
   :deep(.card__desc) {
     overflow: hidden;

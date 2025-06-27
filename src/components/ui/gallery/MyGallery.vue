@@ -2,7 +2,7 @@
 // import { ref } from 'vue'
 // import { RouterLink } from 'vue-router'
 
-import type { CardInfo, ImgInfo } from '@/types'
+import type { CardInfo, ImgInfo } from '@/types/types'
 import MyCard from './MyCard.vue'
 
 // const loaded = ref(true)
@@ -12,13 +12,13 @@ defineProps<{
   // src: string
   // alt?: string
   lineClamp?: number
-  type: 1 | 2 | 3 | 4 | 5
+  type: 1 | 2 | 3 | 4 | 5 | 6
 }>()
 </script>
 
 <template>
   <ul class="gallery">
-    <my-card v-for="card in cards" :key="card.id" :data="card" :type="type">
+    <my-card v-for="(card, index) in cards" :key="index" :data="card" :type="type">
       <template #default>
         <slot />
       </template>

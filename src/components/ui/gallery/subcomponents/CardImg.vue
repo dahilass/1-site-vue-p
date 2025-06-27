@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // IMG ONLY
-import type { ImgInfo } from '@/types'
+import type { Img } from '@/types/types'
 defineProps<{
-  data: ImgInfo
+  data: Img
 }>()
 </script>
 

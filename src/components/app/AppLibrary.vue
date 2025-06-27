@@ -4,7 +4,7 @@ import IconBooks from '../icons/IconBooks.vue'
 import IconHands from '../icons/IconHands.vue'
 import IconLoupe from '../icons/IconLoupe.vue'
 
-import type { ImgInfo } from '@/types'
+import type { ImgInfo } from '@/types/types'
 import type { Component } from 'vue'
 
 import MyGallery from '../ui/gallery/MyGallery.vue'

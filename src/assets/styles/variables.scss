@@ -1,43 +1,36 @@
 @use 'sass:color';
 :root {
   --index: 1vh + 1vw;
+  --btn-color: #fff;
+  --container-width: 1340px;
+  --container-padding: 10px;
+  --header-height: 8rem;
 
+  @media (max-width: 769px) {
+    --header-height: 0px;
+  }
+}
+
+.light {
+  --main-bg: #fff;
+  --alt-bg: #fafafa;
+  --main-color: #232323;
+  --main-color-op: rgba(0, 0, 0, 0.65);
+  --overlay-image: rgba(217, 218, 219, 0.75);
+  --overlay-text: rgba(217, 218, 219, 0.75);
+  --link-hover: #f29138;
+  --accent-color: #0018f1;
+  --accent-color-op: #0018f138;
+}
+.dark {
+  --btn-color: #fff;
   --main-bg: #333230;
   --alt-bg: #262524;
   --main-color: #fff;
   --main-color-op: rgba(255, 255, 255, 0.65);
-  --overlay-image: rgba(38, 37, 36, 0.75);
-
-  --link-hover: green;
-
-  --transition-base: 0.3s linear all;
-  /*COLORS*/
-
-  --white: #fff;
+  --overlay-image: rgba(115, 115, 115, 0.35);
+  --overlay-text: rgba(72, 72, 72, 0.75);
+  --link-hover: #0d6ec7;
   --accent-color: #f24738;
   --accent-color-op: #f2473838;
-  --hover: green;
-
-  // @debug color.mix(#c4c4c4bf, #1a1a1a73, 50%);
-  /*SIZES*/
-  --container-width: 1340px;
-  --container-padding: 10px;
-
-  --header-height: 6.5rem;
-  //   --container-width: 2600px; // @media (min-width: 1800px) {
-  // @media (prefers-color-scheme: dark) {
-  //   --main-bg: #ffffff;
-  //   --alt-bg: #dedede;
-  //   --main-color: #000000;
-  // }
-}
-.light {
-  --main-bg: #eaeaea;
-  --alt-bg: #dcdcdc;
-  --main-color: #232323;
-  --main-color-op: rgba(241, 240, 240, 0.65);
-  --overlay-image: rgba(232, 232, 232, 0.75);
-
-  --accent-color: #009cec;
-  --accent-color-op: #009dec6d;
 }

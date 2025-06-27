@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import MyDropdownList from '../ui/MyDropdownList.vue'
-import type { NavItem } from '@/types'
+import type { NavItem } from '@/types/types'
 
 import { storeToRefs } from 'pinia'
 import { useMenuStore } from '@/stores/menuStore'

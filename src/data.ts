@@ -1,4 +1,4 @@
-import type { CardInfo, NavItem, ImgInfo } from "./types";
+import type { CardInfo, NavItem, Img, GymInfo, PersonInfo } from "./types/types";
 
 
 const aboutDropdown = [{ title: 'новости', path: '/news' }, { title: 'обучение боксу', path: '/training' }, { title: 'соревнования', path: '/competitions' }, { title: 'спортсмены', path: '/sportsmen' }, { title: 'отзывы', path: '/comments' }, { title: 'сборы', path: '/bootcamps' }, { title: 'интересное', path: '/wiki' }],
@@ -32,12 +32,11 @@ const aboutImages: Record<string, string> = import.meta.glob('@/assets/images/ab
   import: 'default'
 })
 
-export const coachInfoArray: CardInfo[] = [
+export const coachInfoArray: PersonInfo[] = [
   {
     name: 'Шишлов Радион',
     desc: 'Основатель и руководитель клуба. Специализируется на подготовке детей и новичков.',
     imgUrl: '/',
-    id: crypto.randomUUID()
 
     // imgUrl: '@/assets/images/coach/1.jpg',
   },
@@ -45,7 +44,6 @@ export const coachInfoArray: CardInfo[] = [
     name: 'Огородник Артем',
     desc: 'КМС по боксу, воспитанник нашей школы бокса, инструктор с 2021г.',
     imgUrl: '/',
-    id: crypto.randomUUID()
 
     // imgUrl: '@/assets/images/coach/2.jpg',
   },
@@ -53,7 +51,6 @@ export const coachInfoArray: CardInfo[] = [
     name: 'Коцоев Арсений',
     desc: 'КМС по боксу и кик-боксингу, Арсений является ярким представителем школы единоборств Республики Северная Осетия - Алания. Тренирует персонально во всех залах клуба!',
     imgUrl: '/',
-    id: crypto.randomUUID()
 
     // imgUrl: '@/assets/images/coach/1.jpg',
   },
@@ -61,7 +58,6 @@ export const coachInfoArray: CardInfo[] = [
     name: 'Аслан Жабоев',
     desc: 'Опытный тренер по единоборствам. МС по тайскому боксу, Мастер спорта по каратэ киукушинкай, он воспитал победителей и призеров Первенств Москвы и России.',
     imgUrl: '/',
-    id: crypto.randomUUID()
 
     // imgUrl: '@/assets/images/coach/2.jpg',
   },
@@ -69,7 +65,6 @@ export const coachInfoArray: CardInfo[] = [
     name: 'Кано Ашимов',
     desc: 'КМС по боксу, воспитанник наших тренеров : Пикулина Александра и Шишлова Родиона. В недавнем прошлом кандидат в национальную сборную.',
     imgUrl: '/',
-    id: crypto.randomUUID()
 
     // imgUrl: '@/assets/images/coach/1.jpg',
   },
@@ -77,7 +72,6 @@ export const coachInfoArray: CardInfo[] = [
     name: 'Регузов Вячеслав',
     desc: 'Обладатель черного пояса по Таэквондо. Тренирует детей в Бутово.',
     imgUrl: '/',
-    id: crypto.randomUUID()
 
     // imgUrl: '@/assets/images/coach/2.jpg',
   }
@@ -91,22 +85,22 @@ for (const person of coachInfoArray) {
 }
 
 export const subjectsInfo: CardInfo[] = [{
-  name: 'ТАЙСКИЙ БОКС',
+  title: 'ТАЙСКИЙ БОКС',
   desc: 'Боевое искусство Таиланда, произошедшее из древнего тайского боевого искусства муай боран и схожее с другими индокитайскими боевыми искусствами Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
   imgUrl: '/',
-  id: crypto.randomUUID()
+  id: '1'
 },
 {
-  name: 'КЛАССИЧЕСКИЙ БОКС',
+  title: 'КЛАССИЧЕСКИЙ БОКС',
   desc: 'Контактный вид спорта, единоборство, в котором спортсмены наносят друг другу удары кулаками в специальных перчатках. Рефери контролирует бой, который длится до 12 раундов Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
   imgUrl: '/',
-  id: crypto.randomUUID()
+  id: '2'
 },
 {
-  name: 'ТХЭКВОНДО',
+  title: 'ТХЭКВОНДО',
   desc: 'Корейское боевое искусство. Характерная особенность - активное использование ног в бою; причем как для ударов, так и для защитных действий. Общепринятое литературное толкование звучит как Далеко-далеко за словесными горами в стране гласных и согласных живут, рыбные тексты. Переписали до грустный залетают все.',
   imgUrl: '/',
-  id: crypto.randomUUID()
+  id: '3'
 }
 ]
 
@@ -117,70 +111,56 @@ for (const unit of subjectsInfo) {
   unit.imgUrl = imagesArray[counter++]
 }
 
-export const gymInfoArray: (CardInfo)[] = [
+export const gymInfoArray: (GymInfo)[] = [
   {
-    name: 'СТРОГИНО',
-    desc: 'ул. Маршала Катукова, 22к2, 4 этаж',
+    name: 'БУТОВО',
+    address: 'м.Скобелевская, ул. Изюмская, 22к3',
+    phone: '',
     imgUrl: '/',
-    id: crypto.randomUUID(),
-    coordinates: [37.407546, 55.805386],
-    router: '/'
+    coordinates: [37.557197, 55.551940],
   },
   {
-    name: 'СОЛНЦЕВО-НОВОПЕРЕДЕЛКИНО',
-    desc: 'Боровское шоссе, 43, 1 этаж',
+    name: 'Митино',
+    address: 'м. Митино, ул. Митинская, 24Ас1',
+    phone: '',
     imgUrl: '/',
-    id: crypto.randomUUID(),
+    coordinates: [37.372449, 55.844041],
+  },
+  {
+    name: 'Коломенская',
+    address: 'м. Коломенская, ул. Нагатинская, 34',
+    phone: '',
+    imgUrl: '/',
+    coordinates: [37.659757, 55.677067],
+  },
+  {
+    name: 'НОВОПЕРЕДЕЛКИНО',
+    address: 'Боровское шоссе, 43, 1 этаж',
+    imgUrl: '/',
+    phone: '',
     coordinates: [37.356818, 55.639441],
-    router: '/'
+
   },
   {
     name: 'МАРЬИНО',
-    desc: 'м. Марьино, Луговой проезд, д.5, 4 этаж',
+    address: 'м. Марьино, Луговой проезд, д.5, 4 этаж',
     imgUrl: '/',
-    id: crypto.randomUUID(),
+    phone: '',
     coordinates: [37.752993, 55.648921],
-    router: '/'
-  },
-  {
-    name: 'НОВОКОСИНО-РЕУТОВ',
-    desc: 'м. Новокосино, г. Реутов, ул. Октября, 2Б',
-    imgUrl: '/',
-    id: crypto.randomUUID(),
-    coordinates: [37.848790, 55.749192],
-    router: '/'
-  },
-  {
-    name: 'БУТОВО',
-    desc: 'м.Скобелевская, ул. Изюмская, 22к3',
-    imgUrl: '/',
-    id: crypto.randomUUID(),
-    coordinates: [37.557197, 55.551940],
-    router: '/'
-  },
-  {
-    name: 'ПЕРОВО',
-    desc: 'м. Перово, 1-ая Владимирская ул., 10Б',
-    imgUrl: '/',
-    id: crypto.randomUUID(),
-    coordinates: [37.771427, 55.757997],
-    router: '/'
   },
   {
     name: 'ЛЕНИНСКИЙ ПРОСПЕКТ',
-    desc: 'м.Ленинский проспект, Площадь Гагарина Академическая, 5-й Донской проезд, д. 15, стр. 42',
+    address: 'м.Ленинский проспект, Площадь Гагарина Академическая, 5-й Донской проезд, д. 15, стр. 42',
     imgUrl: '/',
-    id: crypto.randomUUID(),
+    phone: '',
     coordinates: [37.597495, 55.706031],
-    router: '/'
   },
   {
     name: 'КАХОВСКАЯ',
-    desc: 'м. Каховская, ул. Большая Юшуньская, д. 14, к. 3',
+    address: 'м. Каховская, ул. Большая Юшуньская, д. 14, к. 3',
     imgUrl: '/',
-    id: crypto.randomUUID(),
+    phone: '',
     coordinates: [37.590461, 55.647950],
-    router: '/'
   }
 ]
 
@@ -194,7 +174,7 @@ for (const gym of gymInfoArray) {
 counter = 0
 imagesArray = Object.values(aboutImages)
 
-export const aboutImgArray: ImgInfo[] = [
+export const aboutImgArray: (Img & { id: string })[] = [
   { id: '1', imgUrl: '' },
   { id: '2', imgUrl: '' },
   { id: '3', imgUrl: '' }

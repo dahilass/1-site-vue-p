@@ -4,9 +4,17 @@
 .icon__social {
   fill: var(--accent-color);
 
-  filter: drop-shadow(0 0 1px var(--accent-color));
+  filter: drop-shadow(0 0 4px gray);
 }
 a:hover .icon__social {
   fill: var(--link-hover);
-  transition: var(--transition-base);
+  transition: all 0.25s linear;
+  filter: drop-shadow(0 0 1px var(--link-hover));
+}
+.icon__decor--left {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%) rotate(90deg);
+  left: 0;
+  top: 50%;
 }

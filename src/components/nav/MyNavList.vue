@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { NavItem } from '@/types'
+import type { NavItem } from '@/types/types'
 
 import { useMenuStore } from '@/stores/menuStore'
 
@@ -14,7 +14,6 @@ const menuStore = useMenuStore()
 
 const props = defineProps<{ navItems: NavItem[] }>()
 const nav = reactive(props.navItems.map((el) => Object.assign(el, { isActive: false })))
-
 </script>
 
 <template>

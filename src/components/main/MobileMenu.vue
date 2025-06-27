@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+import { useModalStore } from '@/stores/modalStore'
+const menu = useModalStore()
+
 const toggle = ref(false)
 
 const emit = defineEmits(['menu-toggled'])
@@ -8,6 +11,11 @@ const emit = defineEmits(['menu-toggled'])
 function toggleMenu() {
   toggle.value = !toggle.value
   emit('menu-toggled', toggle.value)
+  if (toggle.value) {
+    menu.openModal()
+  } else {
+    menu.closeModal()
+  }
 }
 </script>
 

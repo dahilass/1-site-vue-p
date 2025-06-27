@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { ImgInfo } from '@/types'
+import type { Img } from '@/types/types'
 import type { Component } from 'vue'
 import { RouterLink } from 'vue-router'
 
 defineProps<{
-  data: ImgInfo & { name: string; icon: Component }
+  data: Img & { name: string; icon: Component }
 }>()
 </script>
 
@@ -12,7 +12,7 @@ defineProps<{
   <li class="card">
     <component :is="data.icon" />
     <h3>{{ data.name }}</h3>
-    <router-link :to="data.id" class="card__link"></router-link>
+    <router-link to="/" class="card__link"></router-link>
   </li>
 </template>
 

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref, shallowRef } from 'vue'
+import { ref, shallowRef, computed } from 'vue'
 
 import type { LngLat, YMap, YMapLocationRequest } from '@yandex/ymaps3-types'
 import { gymInfoArray } from '@/data'
 
 import MyCard from '../ui/gallery/MyCard.vue'
 
-import type { CardInfo } from '@/types'
+import type { GymInfo } from '@/types/types'
 import type { VectorCustomization } from '@yandex/ymaps3-types'
 
 import {
@@ -17,7 +17,11 @@ import {
   YandexMapHint,
   YandexMapZoomControl,
   YandexMapControls,
+  YandexMapGeolocationControl,
 } from 'vue-yandex-maps'
+
+import { useThemeStore } from '@/stores/themeStore'
+const theme = useThemeStore()
 
 const map = shallowRef<null | YMap>(null)
 
@@ -26,13 +30,12 @@ const LOCATION = {
   zoom: 10,
 }
 const currentLocation = ref<YMapLocationRequest>(LOCATION)
-const currentGym = ref<CardInfo>({} as CardInfo)
+const currentGym = ref<GymInfo>({} as GymInfo)
 
 // Проверка для скрытия карточки
 const isCardCollapsed = ref(true)
 
-// Кастомная тема карты
-const customization = shallowRef<VectorCustomization>([
+const darkThemeCustomization: VectorCustomization = [
   {
     tags: {
       any: ['water'],
@@ -77,17 +80,59 @@ const customization = shallowRef<VectorCustomization>([
       },
     ],
   },
-])
+]
+
+const lightThemeCustomization: VectorCustomization = [
+  {
+    tags: {
+      any: ['water'],
+    },
+    elements: 'geometry',
+    stylers: [{ color: '#ffffff' }],
+  },
+  {
+    tags: {
+      any: ['landscape', 'admin', 'land', 'transit'],
+    },
+    elements: 'geometry',
+    stylers: [{ color: '#f0f0f0' }],
+  },
+  {
+    tags: {
+      any: ['road'],
+    },
+    elements: 'geometry',
+    stylers: [{ color: '#cccccc' }],
+  },
+  {
+    tags: {
+      any: ['building'],
+    },
+    elements: 'geometry',
+    stylers: [{ color: '#999999' }],
+  },
+]
+// Кастомная тема карты
+const customization = computed(() =>
+  theme.theme === 'light' ? lightThemeCustomization : darkThemeCustomization,
+)
 </script>
 
 <template>
   <section class="contact section-padding">
     <yandex-map
-      @click="console.log('abebe')"
       v-model="map"
-      :settings="{
-        location: currentLocation,
-      }"
+      :settings="
+        theme.theme === 'light'
+          ? {
+              location: { ...currentLocation, duration: 1000 },
+              theme: 'light',
+            }
+          : {
+              location: { ...currentLocation, duration: 1000 },
+              theme: 'dark',
+            }
+      "
       width="100%"
       height="500px"
     >
@@ -96,25 +141,28 @@ const customization = shallowRef<VectorCustomization>([
       <yandex-map-controls :settings="{ position: 'right' }">
         <yandex-map-zoom-control />
       </yandex-map-controls>
+      <yandex-map-controls :settings="{ position: 'left' }">
+        <yandex-map-geolocation-control />
+      </yandex-map-controls>
       <yandex-map-marker
         @click="
           ((currentGym = marker),
           (currentLocation = { center: marker.coordinates as LngLat, zoom: 15 }),
           (isCardCollapsed = false))
         "
-        v-for="marker of gymInfoArray"
-        :key="marker.id"
+        v-for="(marker, index) of gymInfoArray"
+        :key="index"
         position="top-center left-center"
         :settings="{
           coordinates: marker.coordinates as LngLat,
           properties: {
-            hint: marker.desc,
+            hint: marker.address,
           },
         }"
       >
         <img class="pin" :src="marker.imgUrl" alt="" />
         <p class="marker-window">{{ marker.name }}</p>
-        <template v-html="marker.desc"></template>
+        <template v-html="marker.address"></template>
       </yandex-map-marker>
       <yandex-map-hint hint-property="hint">
         <template #default="{ content }">
@@ -135,7 +183,7 @@ const customization = shallowRef<VectorCustomization>([
         </button>
         <button
           @click="
-            ((currentLocation = LOCATION), (currentGym = {} as CardInfo), (isCardCollapsed = true))
+            ((currentLocation = LOCATION), (currentGym = {} as GymInfo), (isCardCollapsed = true))
           "
           class="close-btn controls-btn link"
         >
@@ -198,6 +246,7 @@ const customization = shallowRef<VectorCustomization>([
   filter: sepia(0.5);
 }
 .marker-window {
+  text-transform: uppercase;
   position: absolute;
   transform: translateY(-50%);
   top: 50%;

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // GYMS SECTION
 import { RouterLink } from 'vue-router'
-import type { CardInfo } from '@/types'
+import type { GymInfo } from '@/types/types'
 
 defineProps<{
-  data: CardInfo
+  data: GymInfo
 }>()
 </script>
 
@@ -14,14 +14,14 @@ defineProps<{
     <p class="card__title">{{ data.name }}</p>
     <div class="card__content">
       <div class="card__col">
-        <address>{{ data.desc }}</address>
+        <address>{{ data.address }}</address>
+        <a>{{ data.phone ? data.phone : '1231241' }}</a>
+
         <my-button class="item-btn btn--blank" mode="btn">Записаться</my-button>
       </div>
       <div class="card__col">
         <img class="card__img" :src="data.imgUrl" />
-        <router-link v-if="data.router" class="link marked" :to="data.router"
-          >Подробнее</router-link
-        >
+        <router-link class="link marked" to="/">Подробнее</router-link>
       </div>
     </div>
   </li>
@@ -39,6 +39,7 @@ defineProps<{
   // box-shadow: 1px 1px 2px var(--main-color);
 }
 .card__title {
+  text-transform: uppercase;
   font-size: 1.2rem;
   font-family: 'One day';
 }

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 
-import AppNavList from './nav/MyNavList.vue'
-import MyLogo from './ui/MyLogo.vue'
-import MySocial from './ui/MySocial.vue'
-import IconMail from './icons/IconMail.vue'
+import AppNavList from '../nav/MyNavList.vue'
+import MyLogo from '../ui/MyLogo.vue'
+import MySocial from '../ui/MySocial.vue'
+import IconMail from '../icons/IconMail.vue'
+import IconArrowTop from '../icons/IconArrowTop.vue'
 
 import { footerNavData } from '@/data'
+
 // import IconDecor from './icons/IconDecor.vue'
 </script>
 
@@ -33,10 +35,15 @@ import { footerNavData } from '@/data'
           </a>
           <my-social class="footer__social">Подписывайтесь на нас</my-social>
         </div>
-
-        <div class="copyright">
-          <p>© 2025 Moscowboxing.ru</p>
-          <p>Все права защищены</p>
+        <div class="footer__row">
+          <a href="#" rel="nofollow" class="anchor link">
+            <icon-arrow-top></icon-arrow-top>
+            Наверх</a
+          >
+          <div class="copyright">
+            <router-link to="/">© 2025 Moscowboxing.ru</router-link>
+            <p>Все права защищены</p>
+          </div>
         </div>
       </div>
     </div>
@@ -46,14 +53,19 @@ import { footerNavData } from '@/data'
 <style lang="scss">
 .footer {
   z-index: 500;
-  padding-block: 3.5rem 1rem;
+  padding-block: 3rem 0.5rem;
   background-color: var(--alt-bg);
   margin-top: auto;
   .copyright {
-    margin-top: 4rem;
+    flex: 1;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+  }
+  .anchor {
+    display: flex;
+    align-items: center;
   }
 }
 .footer__row {

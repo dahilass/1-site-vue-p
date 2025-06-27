@@ -1,7 +1,11 @@
+html,
+body,
+.wrapper {
+  scroll-behavior: smooth;
+}
 html {
   font-size: clamp(16px, var(--index), 20px);
 }
-
 body {
   font-size: 0.8rem;
   font-family: 'Roboto';
@@ -17,15 +21,17 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--main-bg);
+
   /* justify-content: space-between; */
 }
 main {
-  margin-top: 8rem;
+  margin-top: var(--header-height);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   width: 100%;
   height: 100%;
+  // background: url('../images/header-logo.png') center no-repeat fixed;
   @media (max-width: 769px) {
     margin-top: 0;
   }
@@ -33,10 +39,6 @@ main {
 section {
   width: 100%;
   height: 100%;
-}
-a,
-button {
-  color: var(--main-color);
 }
 
 a {
