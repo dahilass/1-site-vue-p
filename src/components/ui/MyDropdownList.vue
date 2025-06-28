@@ -2,6 +2,9 @@
 import type { NavItem } from '@/types/types'
 import { RouterLink } from 'vue-router'
 
+import { useModalStore } from '@/stores/modalStore'
+const headerNav = useModalStore()
+
 defineProps<{
   data?: NavItem[]
 }>()
@@ -10,7 +13,9 @@ defineProps<{
 <template>
   <ul class="dropdown">
     <li class="dropdown__item" v-for="item in data" :key="item.path">
-      <router-link class="link dropdown__link" :to="item.path">{{ item.title }}</router-link>
+      <router-link @click="headerNav.closeNav()" class="link dropdown__link" :to="item.path">{{
+        item.title
+      }}</router-link>
     </li>
   </ul>
 </template>
@@ -24,7 +29,7 @@ defineProps<{
   position: absolute;
   top: 100%;
   left: -1px;
-  z-index: 100;
+  z-index: 1000;
   text-transform: uppercase;
   background-color: var(--alt-bg);
   border-radius: 0 0 4px 4px;

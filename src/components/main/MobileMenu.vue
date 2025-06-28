@@ -1,26 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 import { useModalStore } from '@/stores/modalStore'
+
 const menu = useModalStore()
-
-const toggle = ref(false)
-
-const emit = defineEmits(['menu-toggled'])
-
-function toggleMenu() {
-  toggle.value = !toggle.value
-  emit('menu-toggled', toggle.value)
-  if (toggle.value) {
-    menu.openModal()
-  } else {
-    menu.closeModal()
-  }
-}
 </script>
 
 <template>
-  <div id="menu-toggle" @click="toggleMenu" :class="toggle ? 'open' : ''">
+  <div
+    id="menu-toggle"
+    @click="menu.isNavOpen ? menu.closeNav() : menu.openNav()"
+    :class="menu.isNavOpen ? 'open' : ''"
+  >
     <div id="cross">
       <span></span>
       <span></span>

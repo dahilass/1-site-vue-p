@@ -10,14 +10,16 @@ import IconDecor from '../icons/IconDecor.vue'
 import IconPhone from '../icons/IconPhone.vue'
 import IconColor from '../icons/IconColor.vue'
 
-import { headerNavData } from '@/data'
 import MobileMenu from './MobileMenu.vue'
 
+import { headerNavData } from '@/data'
+
 import { useThemeStore } from '@/stores/themeStore'
+import { useModalStore } from '@/stores/modalStore'
+
+const mobileHeader = useModalStore()
 
 const hiddenOnScroll = ref(false)
-const isMenuOpen = ref(false)
-
 let lastScrollY = window.scrollY
 
 const handleScroll = function () {
@@ -38,10 +40,6 @@ onBeforeUnmount(() => {
 })
 
 const theme = useThemeStore()
-
-function onMenuToggled(value: boolean) {
-  isMenuOpen.value = value
-}
 </script>
 
 <template>
@@ -76,14 +74,14 @@ function onMenuToggled(value: boolean) {
               >
                 <icon-color></icon-color>
               </button>
-              <mobile-menu @menu-toggled="onMenuToggled" class="mobile-menu"></mobile-menu>
+              <mobile-menu class="mobile-menu"></mobile-menu>
             </div>
           </div>
         </div>
         <app-nav-list
           :nav-items="headerNavData"
           class="header__nav"
-          :class="isMenuOpen ? 'header__nav--shown' : ''"
+          :class="mobileHeader.isNavOpen ? 'header__nav--shown' : ''"
         />
       </div>
     </div>
@@ -97,7 +95,7 @@ function onMenuToggled(value: boolean) {
   position: fixed;
   transition: all 0.3s linear;
   width: 100%;
-  z-index: 500;
+  z-index: 600;
   background-color: var(--alt-bg);
   box-shadow: 0px 0px 1px 0px var(--main-color);
   .mobile-menu {

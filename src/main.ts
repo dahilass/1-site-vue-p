@@ -32,7 +32,7 @@ app.use(createPinia())
 
 const themeStore = useThemeStore()
 themeStore.initTheme()
-console.log(themeStore.theme)
+
 app.use(createYmaps({
   apikey: '0934bb86-94d9-43c4-b1cc-40557bb64967',
   lang: 'ru_RU',

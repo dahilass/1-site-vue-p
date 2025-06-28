@@ -2,12 +2,13 @@ import { defineStore } from "pinia";
 
 import type { ModalMode } from "@/types/types";
 
-const allowedModes: (ModalMode)[] = ['comment', 'training', 'header', null]
+const allowedModes: (ModalMode)[] = ['comment', 'training', null]
 
 export const useModalStore = defineStore('modal', {
   state: () => ({
-    isOpen: false,
-    mode: null as Exclude<ModalMode, 'header'>
+    isModalOpen: false,
+    isNavOpen: false,
+    mode: null as ModalMode
   }),
   actions: {
     openModalMode(rawMode: unknown) {
@@ -20,20 +21,21 @@ export const useModalStore = defineStore('modal', {
 
       if (mode === null) return
 
-      if (mode === 'header') {
-        this.isOpen = true
-        return
-      }
-
-      this.isOpen = true
+      this.isModalOpen = true
       this.mode = mode
     },
     openModal() {
-      this.isOpen = true
+      this.isModalOpen = true
     },
     closeModal() {
-      this.isOpen = false
+      this.isModalOpen = false
       this.mode = null
+    },
+    openNav() {
+      this.isNavOpen = true
+    },
+    closeNav() {
+      this.isNavOpen = false
     }
   }
 })

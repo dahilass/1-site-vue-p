@@ -1,16 +1,12 @@
 <script setup lang="ts">
 import type { NavItem } from '@/types/types'
 
-import { useMenuStore } from '@/stores/menuStore'
+import { useMenuStore } from '@/stores/dropdownMenuStore'
 
 import MyNavItem from './MyNavItem.vue'
 import { reactive } from 'vue'
 
 const menuStore = useMenuStore()
-
-// defineProps<{
-//   navItems: NavItem[]
-// }>()
 
 const props = defineProps<{ navItems: NavItem[] }>()
 const nav = reactive(props.navItems.map((el) => Object.assign(el, { isActive: false })))
@@ -38,9 +34,9 @@ const nav = reactive(props.navItems.map((el) => Object.assign(el, { isActive: fa
   flex-wrap: wrap;
   font-size: 0.9rem;
   line-height: 21px;
+  z-index: 200;
 }
 .nav__item {
   position: relative;
-  z-index: 200;
 }
 </style>

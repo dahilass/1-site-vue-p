@@ -124,7 +124,7 @@ const formData = reactive({
 .dialog {
   width: 100%;
   height: 100%;
-  z-index: 500;
+  z-index: 1000;
   inset: 0;
   position: fixed;
   display: flex;

@@ -4,10 +4,13 @@ import MyDropdownList from '../ui/MyDropdownList.vue'
 import type { NavItem } from '@/types/types'
 
 import { storeToRefs } from 'pinia'
-import { useMenuStore } from '@/stores/menuStore'
+import { useMenuStore } from '@/stores/dropdownMenuStore'
+import { useModalStore } from '@/stores/modalStore'
 
 const menuStore = useMenuStore()
 const { openIndex } = storeToRefs(menuStore)
+
+const mobileHeader = useModalStore()
 
 defineProps<{
   data: NavItem & { isActive: boolean }
@@ -17,14 +20,11 @@ defineProps<{
 
 <template>
   <li class="nav__item">
-    <!-- <router-link class="link nav__link" :to="data.path">
-      {{ data.title }}
-    </router-link> -->
     <router-link
       v-if="!data.dropdown"
       class="link nav__link"
       :to="data.path"
-      @click="menuStore.toggle(null)"
+      @click="(menuStore.toggle(null), mobileHeader.closeNav())"
     >
       {{ data.title }}
     </router-link>
