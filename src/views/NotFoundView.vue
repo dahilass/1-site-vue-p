@@ -29,16 +29,21 @@ import gif from '@/assets/media/404.gif'
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 55% 95%;
-  background-blend-mode: color;
-  background-color: rgba(0, 0, 0, 0.407);
+  background-blend-mode: hue;
+  background-color: var(--overlay-image);
   // .container {
   //   z-index: 1;
   // }
+
+  .container {
+    display: flex;
+  }
 }
 .not-found__inner {
+  margin-block: auto;
   display: inline-block;
   padding: 2rem;
-  background-color: #0000005d;
+  background-color: var(--overlay-text);
   border-radius: 4px;
 }
 .not-found__heading {
