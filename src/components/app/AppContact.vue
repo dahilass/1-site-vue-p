@@ -269,10 +269,9 @@ const customization = computed(() =>
   position: absolute;
   transform: translate(7px, -100%);
   padding: 4px;
-  background-color: var(--main-color);
+  background-color: beige;
   border: 1px solid var(--alt-bg);
   opacity: 0.9;
-  white-space: nowrap;
 }
 .collapsed {
   bottom: -37%;
