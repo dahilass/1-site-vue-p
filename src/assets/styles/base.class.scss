@@ -26,11 +26,11 @@
 .section-padding {
   padding-block: 4rem;
   &:first-child {
-    padding-top: 6rem;
+    padding-top: 8rem;
   }
 }
 .section__heading {
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -51,6 +51,15 @@
 }
 .upper {
   text-transform: uppercase;
+}
+.lower {
+  text-transform: lowercase;
+}
+.underline {
+  text-decoration: underline;
+}
+.increased {
+  font-size: 1rem;
 }
 .theme-change {
   border-radius: 50%;
