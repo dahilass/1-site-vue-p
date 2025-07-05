@@ -1,43 +1,53 @@
 <script setup lang="ts">
 import heroBg from '@/assets/images/hero-bg.jpg'
-import MySocial from '../ui/MySocial.vue'
+import MySocial from '@/shared/ui/MySocial.vue'
 </script>
 
 <template>
-  <section class="section-padding hero" :style="{ backgroundImage: `url(${heroBg})` }">
+  <section
+    class="hero section-padding section-padding--double"
+    :style="{ backgroundImage: `url(${heroBg})` }"
+  >
     <div class="container">
       <div class="hero__inner">
         <div class="hero__general">
-          <h1 class="hero__title">
-            ДОБРО ПОЖАЛОВАТЬ В ШКОЛУ БОКСА В МОСКВЕ <span>MOSCOWBOXING!</span>
-          </h1>
-          <div class="hero__contact">
-            <p class="subtitle hero__subtitle">БУТОВО</p>
-            <a href="tel:+74951049628">+7 (495) 104-96-28</a>
-            <address>м.Скобелевская, ул. Изюмская, 22к3</address>
+          <div class="hero__info">
+            <h1 class="hero__title">
+              ДОБРО ПОЖАЛОВАТЬ В ШКОЛУ БОКСА В МОСКВЕ <span>MOSCOWBOXING!</span>
+            </h1>
+            <p class="hero__subtitle">
+              <!-- «Здесь закаляется характер, развивается сила и рождается уверенность в себе. -->
+              Тренировки для начинающих и опытных. Мы научим тебя побеждать — в ринге и в жизни.
+            </p>
           </div>
-          <my-button class="hero__btn btn--mwidth" :mode="'training'">Онлайн запись</my-button>
+          <!-- <div class="hero__contact">
+            <p class="subtitle hero__subtitle">БУТОВО</p>
+            <a class="link hero__link" href="tel:+74951049628">+7 (495) 104-96-28</a>
+            <address>м.Скобелевская, ул. Изюмская, 22к3</address>
+          </div> -->
+          <div class="hero__btn-box">
+            <my-button class="hero__btn btn--mwidth" :mode="'training'">Онлайн запись</my-button>
+            <my-button class="hero__btn btn--mwidth">Посмотреть залы</my-button>
+          </div>
         </div>
-        <my-social class="hero__social" />
+        <my-social mode="global" class="hero__social" />
       </div>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-@use 'sass:color';
-$overlay-color1: #1a1a1a73;
-$overlay-color2: #c4c4c4bf;
-// $mix: mix($color1, $color2, 50%);
-
 .hero {
+  color: var(--white);
   display: flex;
-  min-height: calc(100vh - var(--header-height));
+  height: calc(100vh - var(--header-height));
   position: relative;
-  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 55% 50%;
+  @media (max-height: 450px) {
+    padding: 2rem 0;
+  }
   &::before {
     content: '';
     position: absolute;
@@ -47,26 +57,34 @@ $overlay-color2: #c4c4c4bf;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-color: color.mix($overlay-color1, $overlay-color2, 50%);
+    background-color: var(--overlay-image);
     // background-image:
     //   linear-gradient(rgba(26, 26, 26, 0.45), rgba(196, 196, 196, 0.75)),
     //   linear-gradient(rgba(196, 196, 196, 0.75), rgba(26, 26, 26, 0.45));
     // background-blend-mode: multiply;
   }
   &__inner {
+    display: flex;
     position: relative;
     top: 0;
-    display: flex;
     padding-inline: var(--container-padding);
     width: 100%;
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
-    justify-content: space-between;
+    justify-content: center;
     z-index: 10;
+    @media (min-height: 450px) {
+      flex-direction: column;
+    }
   }
   &__general {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    gap: 1rem;
+    align-self: flex-start;
+    @media (min-height: 450px) {
+      // gap: unset;
+      justify-content: space-evenly;
+      flex-direction: column;
+    }
   }
   .container {
     padding-block: 4.6rem;
@@ -86,23 +104,63 @@ $overlay-color2: #c4c4c4bf;
     color: var(--accent-color);
   }
 }
+.hero__subtitle {
+  text-wrap: pretty;
+  font-size: 1rem;
+  max-width: 21rem;
+}
+// .hero__title:not(.marked),
+// .hero__subtitle:not(.marked) {
+//   text-shadow: 1px 1px var(--accent-color);
+// }
+.hero__info {
+  align-self: start;
+  padding: 1.5rem 1rem;
+  border-radius: 4px;
+  background-color: var(--overlay-text);
+  @media (max-width: 400px) {
+    padding: 1rem 0.5rem;
+  }
+}
 .hero__contact {
   max-width: 11rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+.hero__btn-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  @media (min-height: 450px) {
+    margin-top: 3rem;
+    justify-content: start;
+    gap: 1rem;
+  }
+}
 .hero__btn {
   align-self: start;
   display: inline;
-  margin-top: 3rem;
 }
+
 .hero__social {
-  flex-direction: column;
-  align-self: end;
-  margin-bottom: 3rem;
-  margin-right: 1rem;
+  margin-block: 3rem;
+  align-self: flex-start;
   gap: 0.25rem;
-  background-color: coral;
+  @media (max-height: 450px) {
+    :deep(.socials__list) {
+      display: block;
+    }
+  }
+}
+.hero__link {
+  color: var(--white);
+}
+
+@media (min-width: 769px) {
+  .hero {
+    margin-bottom: 2.5rem;
+  }
 }
 </style>

@@ -1,16 +1,17 @@
 import { defineStore } from "pinia";
 
-export type ModalMode = 'comment' | 'training' | null
+import type { ModalMode } from "@/app/types/types";
 
 const allowedModes: (ModalMode)[] = ['comment', 'training', null]
 
 export const useModalStore = defineStore('modal', {
   state: () => ({
-    isOpen: false,
+    isModalOpen: false,
+    isNavOpen: false,
     mode: null as ModalMode
   }),
   actions: {
-    openModal(rawMode: unknown) {
+    openModalMode(rawMode: unknown) {
       if (!allowedModes.includes(rawMode as ModalMode)) {
         console.warn(`[ModalStore] Неверный mode:`, rawMode)
         return
@@ -20,12 +21,21 @@ export const useModalStore = defineStore('modal', {
 
       if (mode === null) return
 
-      this.isOpen = true
+      this.isModalOpen = true
       this.mode = mode
     },
+    openModal() {
+      this.isModalOpen = true
+    },
     closeModal() {
-      this.isOpen = false
+      this.isModalOpen = false
       this.mode = null
+    },
+    openNav() {
+      this.isNavOpen = true
+    },
+    closeNav() {
+      this.isNavOpen = false
     }
   }
 })

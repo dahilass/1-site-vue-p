@@ -2,7 +2,7 @@
 // import { gymInfoArray } from '@/data'
 // import MyGallery from './MyGallery.vue'
 
-import MyGallery from '../ui/gallery/MyGallery.vue'
+import MyGallery from '@/shared/ui/lists/MyGallery.vue'
 
 import { gymInfoArray } from '@/data'
 
@@ -18,7 +18,7 @@ if (!placeholder) {
     <div class="container">
       <div class="gyms__inner">
         <my-heading>Залы</my-heading>
-        <my-gallery :type="4" :cards="gymInfoArray" class="gyms__gallery"></my-gallery>
+        <my-gallery :cardType="4" :cards="gymInfoArray" class="gyms__gallery"></my-gallery>
       </div>
     </div>
   </section>

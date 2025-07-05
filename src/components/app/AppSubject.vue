@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import MyGallery from '../ui/gallery/MyGallery.vue'
+import MyGallery from '@/shared/ui/lists/MyGallery.vue'
 import { subjectsInfo } from '@/data'
 
-import IconDecor from '../icons/IconDecor.vue'
+import IconDecor from '@/shared/ui/icons/IconDecor.vue'
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import IconDecor from '../icons/IconDecor.vue'
     <div class="container">
       <div class="subject__inner">
         <my-heading>Дисциплины</my-heading>
-        <my-gallery :type="3" :cards="subjectsInfo" class="subject__gallery">
+        <my-gallery :cardType="3" :cards="subjectsInfo" class="subject__gallery">
           <template #default>
             <icon-decor class="subject__icon icon__decor--left"></icon-decor>
           </template>

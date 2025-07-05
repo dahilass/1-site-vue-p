@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import IconGloves from '../icons/IconGloves.vue'
-import IconBooks from '../icons/IconBooks.vue'
-import IconHands from '../icons/IconHands.vue'
-import IconLoupe from '../icons/IconLoupe.vue'
+import IconGloves from '@/shared/ui/icons/IconGloves.vue'
+import IconBooks from '@/shared/ui/icons/IconBooks.vue'
+import IconHands from '@/shared/ui/icons/IconHands.vue'
+import IconLoupe from '@/shared/ui/icons/IconLoupe.vue'
 
-import type { ImgInfo } from '@/types'
+import type { ImgInfo } from '@/app/types/types'
 import type { Component } from 'vue'
 
-import MyGallery from '../ui/gallery/MyGallery.vue'
+import MyGallery from '@/shared/ui/lists/MyGallery.vue'
 
 const arr: (ImgInfo & { name: string; icon: Component })[] = [
   { name: 'КНИГИ и ЛИТЕРАТУРА', imgUrl: '/', id: '2', icon: IconBooks },
@@ -23,7 +23,7 @@ const arr: (ImgInfo & { name: string; icon: Component })[] = [
 <template>
   <section class="wiki section-padding">
     <div class="container">
-      <my-gallery :type="5" :cards="arr" class="library__gallery"></my-gallery>
+      <my-gallery :cardType="5" :cards="arr" class="library__gallery"></my-gallery>
     </div>
   </section>
 </template>

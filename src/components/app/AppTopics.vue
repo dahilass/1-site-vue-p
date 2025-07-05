@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import MyGallery from '../ui/gallery/MyGallery.vue'
+import MyGallery from '@/shared/ui/lists/MyGallery.vue'
 
 import img1 from '@/assets/images/subject/1.jpg'
 import img2 from '@/assets/images/subject/2.jpg'
 import img3 from '@/assets/images/subject/3.jpg'
 import img4 from '@/assets/images/subject/4.jpg'
 import img5 from '@/assets/images/subject/5.jpg'
-import IconDecor from '../icons/IconDecor.vue'
+import IconDecor from '@/shared/ui/icons/IconDecor.vue'
 
 // const imgs: Record<string, string> = import.meta.glob('@/assets/images/subject/*.jpg', {
 //   eager: true,
@@ -27,7 +27,7 @@ const topics = [
     <div class="container">
       <div class="topics__inner">
         <my-heading class="topics__heading">ИНТЕРЕСНОЕ О БОКСЕ</my-heading>
-        <my-gallery :type="3" :cards="topics" class="topics__gallery">
+        <my-gallery :cardType="3" :cards="topics" class="topics__gallery">
           <template #default>
             <icon-decor class="topics__icon icon__decor--left"></icon-decor>
           </template>
