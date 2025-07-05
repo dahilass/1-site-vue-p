@@ -4,11 +4,11 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createYmaps } from 'vue-yandex-maps'
 
-import App from './App.vue'
-import router from './router'
-import components from '@/components/ui'
+import App from '@/app/App.vue'
+import router from './app/router'
+import components from '@/shared/ui'
 
-import { useThemeStore } from './stores/themeStore'
+import { useThemeStore } from '@/stores/themeStore'
 
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/splide.min.css'

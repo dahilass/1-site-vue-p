@@ -1,10 +1,13 @@
 html,
 body,
 .wrapper {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
   letter-spacing: 0.25px;
   line-height: 1.25;
 }
+// main {
+//   scroll-behavior: smooth;
+// }
 html {
   font-size: clamp(16px, var(--index), 20px);
 }
@@ -31,7 +34,7 @@ main {
   width: 100%;
   height: 100%;
   // background: url('../images/header-logo.png') center no-repeat fixed;
-  @media (max-width: 769px) {
+  @media (max-width: 768px) {
     margin-top: 0;
   }
 }
@@ -51,5 +54,4 @@ svg.icon {
 
 img {
   width: 100%;
-  height: 100%;
 }

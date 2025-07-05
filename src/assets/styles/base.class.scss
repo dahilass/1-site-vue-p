@@ -7,7 +7,6 @@
 
 .link {
   display: block;
-  transition: 0.25s all linear;
   user-select: all;
   white-space: nowrap;
 }
@@ -25,7 +24,7 @@
 
 .section-padding {
   padding-block: 4rem;
-  &:first-child {
+  &--double {
     padding-top: 8rem;
   }
 }
@@ -63,10 +62,22 @@
 }
 .theme-change {
   border-radius: 50%;
-  // box-shadow: 0 0 2px var(--main-color);
-  filter: drop-shadow(0 0 2px var(--main-color));
+  box-shadow: 0 0 1px var(--main-color);
   transition: filter 0.25s linear;
+  filter: invert(0.5);
   &:hover {
-    filter: invert(1);
+    filter: invert(0);
   }
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }

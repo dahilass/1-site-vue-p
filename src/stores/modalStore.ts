@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import type { ModalMode } from "@/types/types";
+import type { ModalMode } from "@/app/types/types";
 
 const allowedModes: (ModalMode)[] = ['comment', 'training', null]
 

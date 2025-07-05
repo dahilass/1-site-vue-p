@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import IconQuotes from '../icons/IconQuotes.vue'
-import IconStar from '../icons/IconStar.vue'
+import IconQuotes from '@/shared/ui/icons/IconQuotes.vue'
+import IconStar from '@/shared/ui/icons/IconStar.vue'
 
+import { commentSplideOptions } from '@/settings/splideOptions'
 const comments = [
   {
     name: 'Наталья 1',
     comment:
-      'Хочется выразить огромную благодарность организаторам сборов по боксу на базе комплекса «Искра» в Кучугурах. Сын приехал отдохнувшим, физически заметно окреп и остался очень доволен поездкой. Работа тренерского состава, условия проживания, организация досуга, контроль и программа тренировок -на высшем уровне! Ждем начала плановых тренировок! Огромное спасибо за ваше работу!',
+      'Хочется выразить огромную благодарность организаторам сборов по боксу на базе комплекса «Искра» в Кучугурах. Сын приехал отдохнувшим, физически заметно окреп и остался очень доволен поездкой. Работа тренерского состава, условия проживания, организация досуга, контроль и программа тренировок -на высшем уровне! Ждем начала плановых тренировок! Огромное спасибо за ваше работу! ',
     mark: '1',
   },
   {
@@ -35,39 +36,18 @@ const comments = [
   },
 ]
 
-const splideOptions = {
-  type: 'loop',
-  perMove: 1,
-  speed: 1000,
-  // autoWidth: true,
-  // autoHeight: true,
-  perPage: 1,
-  // fixedWidth: '42rem',
-  focus: 'center',
-  gap: '20rem',
-  padding: '15%',
-  lazyLoad: 'nearby',
-  pagination: true,
-  trimSpace: false,
-  // keyboard: 'global',
-  breakpoints: {
-    1000: {
-      padding: '10%',
-    },
-    768: {
-      padding: '5%',
-    },
-  },
-}
+defineOptions({
+  title: 'отзывы',
+})
 </script>
 
 <template>
   <section class="comments section-padding">
     <div class="container">
       <div class="comments__inner">
-        <my-heading :link="'comments'">Отзывы</my-heading>
-        <my-splide :options="splideOptions">
-          <splide-slide class="comments__item" v-for="(comment, i) in comments" :key="i">
+        <my-heading :title="$options.title" link="comments" />
+        <my-splide class="comments__splide" :options="commentSplideOptions">
+          <splide-slide class="comments__card" v-for="(comment, i) in comments" :key="i">
             <icon-quotes class="comments__icon" />
             <p class="comments__desc">{{ comment.comment }}</p>
             <div class="comments__mark">
@@ -82,6 +62,8 @@ const splideOptions = {
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/mixins' as mixins;
+
 :deep(.splide__slide) {
   // z-index: 1000 !important;
   // overflow: visible !important;
@@ -89,11 +71,16 @@ const splideOptions = {
   align-items: center;
   justify-content: center;
 }
-.comments__item {
+.comments__splide {
+  padding: 1rem 3rem;
+  // margin-inline: auto;
+}
+.comments__card {
+  margin-inline: auto;
   max-width: 42rem;
   position: relative;
   margin-inline: auto;
-  padding: 4.5rem 3rem 2rem;
+  padding: 1.5rem 1.5rem 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,6 +88,11 @@ const splideOptions = {
   gap: 1rem;
   background-color: var(--alt-bg);
   border-radius: 8px;
+  @include mixins.card-shadow;
+
+  @media (min-width: 600px) {
+    padding: 4.5rem 3rem 2rem;
+  }
   @media (min-width: 769px) {
     font-size: 1.25rem;
   }
@@ -111,9 +103,13 @@ const splideOptions = {
 }
 .comments__icon {
   top: 10%;
-  left: 0;
+  left: -2%;
   transform: translate(-30%, -50%);
   position: absolute;
+  display: none;
+  @media (min-width: 600px) {
+    display: block;
+  }
   @media (min-width: 769px) {
     left: 0;
     top: 25%;

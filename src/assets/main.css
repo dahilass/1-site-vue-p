@@ -5,5 +5,7 @@
 @import './styles/fonts.scss';
 @import './styles/icon.scss';
 @import './styles/variables.scss';
+@import './styles/splider.scss';
+@import './styles/transitions.scss';
 
 @import './styles/containers.scss';

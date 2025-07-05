@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useMenuStore = defineStore('menu', {
+export const useDropdownMenuStore = defineStore('dropdownMenu', {
   state: () => ({
     openIndex: null as number | null,
   }),

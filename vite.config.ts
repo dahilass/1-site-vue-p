@@ -12,7 +12,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(__dirname, 'src/assets/icons')],
+      iconDirs: [path.resolve(__dirname, 'src/shared/assets/icons')],
       symbolId: 'icon-[name]'
     }),
   ],

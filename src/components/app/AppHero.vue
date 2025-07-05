@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import heroBg from '@/assets/images/hero-bg.jpg'
-import MySocial from '../ui/MySocial.vue'
+import MySocial from '@/shared/ui/MySocial.vue'
 </script>
 
 <template>
-  <section class="section-padding hero" :style="{ backgroundImage: `url(${heroBg})` }">
+  <section
+    class="hero section-padding section-padding--double"
+    :style="{ backgroundImage: `url(${heroBg})` }"
+  >
     <div class="container">
       <div class="hero__inner">
         <div class="hero__general">
@@ -27,7 +30,7 @@ import MySocial from '../ui/MySocial.vue'
             <my-button class="hero__btn btn--mwidth">Посмотреть залы</my-button>
           </div>
         </div>
-        <my-social class="hero__social" />
+        <my-social mode="global" class="hero__social" />
       </div>
     </div>
   </section>
@@ -42,6 +45,9 @@ import MySocial from '../ui/MySocial.vue'
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 55% 50%;
+  @media (max-height: 450px) {
+    padding: 2rem 0;
+  }
   &::before {
     content: '';
     position: absolute;
@@ -59,7 +65,6 @@ import MySocial from '../ui/MySocial.vue'
   }
   &__inner {
     display: flex;
-    flex-direction: column;
     position: relative;
     top: 0;
     padding-inline: var(--container-padding);
@@ -67,11 +72,19 @@ import MySocial from '../ui/MySocial.vue'
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
     justify-content: center;
     z-index: 10;
+    @media (min-height: 450px) {
+      flex-direction: column;
+    }
   }
   &__general {
     display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
+    gap: 1rem;
+    align-self: flex-start;
+    @media (min-height: 450px) {
+      // gap: unset;
+      justify-content: space-evenly;
+      flex-direction: column;
+    }
   }
   .container {
     padding-block: 4.6rem;
@@ -92,8 +105,9 @@ import MySocial from '../ui/MySocial.vue'
   }
 }
 .hero__subtitle {
+  text-wrap: pretty;
   font-size: 1rem;
-  max-width: 20rem;
+  max-width: 21rem;
 }
 // .hero__title:not(.marked),
 // .hero__subtitle:not(.marked) {
@@ -117,8 +131,13 @@ import MySocial from '../ui/MySocial.vue'
 .hero__btn-box {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 4rem;
+  align-items: center;
+  justify-content: center;
+  @media (min-height: 450px) {
+    margin-top: 3rem;
+    justify-content: start;
+    gap: 1rem;
+  }
 }
 .hero__btn {
   align-self: start;
@@ -126,13 +145,19 @@ import MySocial from '../ui/MySocial.vue'
 }
 
 .hero__social {
-  margin-top: 4rem;
+  margin-block: 3rem;
   align-self: flex-start;
   gap: 0.25rem;
+  @media (max-height: 450px) {
+    :deep(.socials__list) {
+      display: block;
+    }
+  }
 }
 .hero__link {
   color: var(--white);
 }
+
 @media (min-width: 769px) {
   .hero {
     margin-bottom: 2.5rem;
