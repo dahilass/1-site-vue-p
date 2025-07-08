@@ -7,9 +7,9 @@
     "src/data.ts",
     "src/main.ts",
     "src/stores",
-    "src/shared",
+    "src/5_shared",
     "src/settings",
-    "src/app"
+    "src/0_app"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
@@ -18,12 +18,12 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@app/*": ["src/app/*"],
-      "@pages/*": ["src/pages/*"],
-      "@widgets/*": ["src/widgets/*"],
-      "@features/*": ["src/features/*"],
-      "@entities/*": ["src/entities/*"],
-      "@shared/*": ["src/shared/*"]
+      "@app/*": ["src/0_app/*"],
+      "@pages/*": ["src/1_pages/*"],
+      "@widgets/*": ["src/2_widgets/*"],
+      "@features/*": ["src/3_features/*"],
+      "@entities/*": ["src/4_entities/*"],
+      "@shared/*": ["src/5_shared/*"]
     }
   }
 }
