@@ -1,0 +1,11 @@
+@import '@shared/assets/styles/reset.scss';
+
+@import '@shared/assets/styles/base.scss';
+@import '@shared/assets/styles/base.class.scss';
+@import '@shared/assets/styles/fonts.scss';
+@import '@shared/assets/styles/icon.scss';
+@import '@shared/assets/styles/variables.scss';
+@import '@shared/assets/styles/transitions.scss';
+@import '@shared/assets/styles/splide.scss';
+
+@import '@shared/assets/styles/containers.scss';

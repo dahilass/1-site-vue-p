@@ -1,22 +1,22 @@
-import './assets/main.css'
+import '@app/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createYmaps } from 'vue-yandex-maps'
 
-import App from '@/app/App.vue'
-import router from './app/router'
-import components from '@/shared/ui'
+import App from '@/0_app/App.vue'
+import router from './0_app/router'
+import components from '@/5_shared/ui'
 
-import { useThemeStore } from '@/stores/themeStore'
+import { useThemeStore } from '@/5_shared/stores/themeStore'
 
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/splide.min.css'
 
-import placeholder from '@/assets/images/placeholder.jpg'
+import placeholder from '@shared/assets/images/placeholder.jpg'
 // console.log(placeholder)
-
 import 'virtual:svg-icons-register'
+
 
 const app = createApp(App)
 
