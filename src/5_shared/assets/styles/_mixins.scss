@@ -1,5 +1,4 @@
 @mixin hover-card {
-  transform: scale(1.02);
   color: var(--link-hover);
   box-shadow: 4px 4px 4px var(--link-hover);
 }
@@ -14,4 +13,7 @@
 }
 @mixin link-shadow {
   box-shadow: 2px 2px 4px var(--accent-color);
+}
+@mixin none-shadow {
+  box-shadow: unset;
 }

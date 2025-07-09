@@ -1,8 +1,7 @@
 <script setup lang="ts">
 // GYMS SECTION
 import { RouterLink } from 'vue-router'
-import type { GymInfo } from '@/0_app/types/types'
-
+import type { GymInfo } from '@app/types/types'
 defineProps<{
   data: GymInfo
 }>()
@@ -15,9 +14,11 @@ defineProps<{
     <div class="card__content">
       <div class="card__col">
         <address>{{ data.address }}</address>
-        <a>{{ data.phone ? data.phone : '1231241' }}</a>
-
-        <my-button class="item-btn btn--blank" mode="btn">Записаться</my-button>
+        <a :href="`tel:${data.phone.replace(/[^0-9+]/gi, '')}`">{{
+          data.phone ? data.phone : '8(495)-201-34-38'
+        }}</a>
+        <p>{{ data.time }}</p>
+        <my-button class="card__btn btn--blank" mode="btn">Записаться</my-button>
       </div>
       <div class="card__col">
         <img class="card__img" :src="data.imgUrl" />
@@ -70,5 +71,8 @@ defineProps<{
   aspect-ratio: 3/2;
   object-fit: cover;
   margin-bottom: 1rem;
+}
+.card__btn {
+  align-self: start;
 }
 </style>

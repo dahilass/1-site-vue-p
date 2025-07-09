@@ -13,7 +13,7 @@ import MySocial from '@shared/ui/MySocial.vue'
         <div class="hero__general">
           <div class="hero__info">
             <h1 class="hero__title">
-              ДОБРО ПОЖАЛОВАТЬ В ШКОЛУ БОКСА В МОСКВЕ <span>MOSCOWBOXING!</span>
+              ДОБРО ПОЖАЛОВАТЬ В ШКОЛУ БОКСА В МОСКВЕ <span class="brand">MOSCOWBOXING!</span>
             </h1>
             <p class="hero__subtitle">
               <!-- «Здесь закаляется характер, развивается сила и рождается уверенность в себе. -->
@@ -26,7 +26,7 @@ import MySocial from '@shared/ui/MySocial.vue'
             <address>м.Скобелевская, ул. Изюмская, 22к3</address>
           </div> -->
           <div class="hero__btn-box">
-            <my-button class="hero__btn btn--mwidth" :modalMode="'training'"
+            <my-button class="hero__btn btn--mwidth" mode="modal" :modalMode="'training'"
               >Онлайн запись</my-button
             >
             <my-button class="hero__btn btn--mwidth" mode="link">Посмотреть залы</my-button>
@@ -98,10 +98,10 @@ import MySocial from '@shared/ui/MySocial.vue'
   // padding-top: 4.6rem;
   margin-bottom: 2rem;
   max-width: 27rem;
-
   font-size: 2rem;
   line-height: 2.4rem;
   text-transform: uppercase;
+  text-shadow: 1px 1px var(--main-bg);
   span {
     color: var(--accent-color);
   }

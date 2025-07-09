@@ -7,21 +7,25 @@ export const directions = [
   {
     title: 'ГРУППОВЫЕ ТРЕНИРОВКИ',
     imgUrl: img1,
-    router: 'group'
+    router: 'group',
+    desc: 'ГРУППОВЫЕ ТРЕНИРОВКИ описаеие'
   },
   {
     title: 'ИНДИВИДУАЛЬНЫЕ ТРЕНИРОВКИ',
     imgUrl: img2,
-    router: 'private'
+    router: 'private',
+    desc: 'ИНДИВИДУАЛЬНЫЕ ТРЕНИРОВКИ описание'
   },
   {
     title: 'СБОРЫ',
     imgUrl: img3,
-    router: 'bootcamps'
+    router: 'bootcamps',
+    desc: 'СБОРЫ описание'
   },
   {
     title: 'СОРЕВНОВАНИЯ',
     imgUrl: img4,
-    router: 'competitions'
+    router: 'competitions',
+    desc: 'СОРЕВНОВАНИЯ описание'
   },
 ]

@@ -6,7 +6,7 @@
 
 <template>
   <div class="btn-box section-padding">
-    <my-button :modalMode="'training'" class="btn--mwidth">
+    <my-button mode="modal" :modalMode="'training'" class="btn--mwidth">
       <slot />
     </my-button>
     <!-- <my-button> </my-button> -->

@@ -11,7 +11,7 @@ import PageNews from '@pages/news/index.vue'
 import PageNewsItem from '@pages/news/[id].vue'
 import PageCoaches from '@pages/coaches/index.vue'
 import PageCoachItem from '@pages/coaches/[id].vue'
-
+import PageTraining from "@pages/PageTraining.vue";
 
 const routes = createRouter({
 
@@ -58,6 +58,11 @@ const routes = createRouter({
       component: PrivatePolicyView
     },
 
+    {
+      path: '/training',
+      name: 'training',
+      component: PageTraining,
+    },
 
 
     // 404
@@ -71,8 +76,16 @@ const routes = createRouter({
     //   redirect: '/404'
     // }
   ],
-  scrollBehavior() {
-    return { top: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(savedPosition)
+        }, 300) // например, подождать завершения анимации перехода
+      })
+    } else {
+      return { top: 0 }
+    }
   }
 })
 
