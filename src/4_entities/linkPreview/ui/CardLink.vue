@@ -14,6 +14,7 @@ defineProps<{
 
 <template>
   <li class="card">
+    <div class="card__desc">{{ data.desc }}</div>
     <img
       class="card__img"
       :src="data.imgUrl"
@@ -24,9 +25,6 @@ defineProps<{
     />
     <article v-if="data.title || data.desc" class="card__info">
       <h3 class="card__name" v-if="data.title">{{ data.title }}</h3>
-      <p class="card__desc" v-if="data.desc">
-        {{ data.desc }}
-      </p>
       <!-- <p class="card__link-desc"></p> -->
       <router-link :to="data.router" class="card__link"></router-link>
     </article>
@@ -37,11 +35,11 @@ defineProps<{
 <style lang="scss" scoped>
 @use '@shared/assets/styles/mixins' as mixins;
 .card {
-  max-width: 20rem;
   position: relative;
+  overflow: hidden;
+  max-width: 20rem;
   width: 100%;
-  text-shadow: 1px 1px var(--alt-bg);
-  @include mixins.link-shadow;
+  // @include mixins.link-shadow;
   transition:
     transform 0.3s linear,
     box-shadow 0.3s linear;
@@ -57,8 +55,22 @@ defineProps<{
   }
   &:hover,
   &:focus {
-    @include mixins.hover-card;
+    // @include mixins.none-shadow;
+    .card__desc {
+      transform: translateY(-1%);
+    }
   }
+}
+.card__desc {
+  z-index: 51;
+  background-color: var(--accent-color);
+  position: absolute;
+  width: 100%;
+  height: 102%;
+  inset: 0;
+  transform: translateY(100%);
+  transition: transform 0.2s linear;
+  pointer-events: none;
 }
 .card__decor {
   position: absolute;
@@ -80,14 +92,11 @@ defineProps<{
   justify-content: space-evenly;
 }
 .card__name {
-  font-size: 1.2rem;
   margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px var(--alt-bg);
 }
-.card__desc {
-  max-width: 16rem;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-}
+
 .card__img {
   width: 100%;
   height: 100%;

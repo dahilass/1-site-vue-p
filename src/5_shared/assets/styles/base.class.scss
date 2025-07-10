@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 .link {
   display: block;
   user-select: all;
@@ -72,4 +73,12 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   overflow: hidden;
+}
+.brand {
+  -webkit-text-stroke: 1px var(--main-bg);
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  line-height: 1.25;
 }

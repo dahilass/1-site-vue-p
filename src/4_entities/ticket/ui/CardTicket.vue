@@ -3,32 +3,75 @@ import type { CardTicket } from '@app/types/types'
 
 defineProps<{
   data: CardTicket
+  isMarked: boolean
 }>()
 </script>
 
 <template>
-  <p class="ticket__title">{{ data.title }}</p>
-  <p class="ticket__desc">{{ data.desc }}</p>
-  <div class="ticket__numbers">
-    <p class="ticket__time">{{ data.time || '1 час 30 минут' }}</p>
-    <p class="ticket__price">{{ data.price }} ₽</p>
+  <div
+    class="ticket"
+    :class="{
+      'ticket--marked': isMarked,
+    }"
+  >
+    <p class="ticket__title marked">{{ data.title }}</p>
+    <p class="ticket__desc">{{ data.desc }}</p>
+    <div class="ticket__numbers">
+      <p class="ticket__time">{{ data.time || '1 час 30 минут' }}</p>
+      <p class="ticket__price">{{ data.price }} ₽</p>
+    </div>
+    <p class="ticket__add" v-if="data.additional">+ {{ data.additional.title }} в подарок</p>
+    <my-button class="ticket__btn" mode="link">Купить</my-button>
   </div>
-  <p class="ticket__add" v-if="data.additional">+ {{ data.additional.title }} в подарок</p>
-  <my-button class="ticket__btn" mode="link">Купить</my-button>
 </template>
 
 <style lang="scss" scoped>
-.card {
-  padding: 1rem 2rem;
-  max-width: 10rem;
-  flex-direction: column;
-  justify-content: space-between;
+.ticket {
+  padding: 0.5rem 1rem;
+  max-width: 20rem;
+  margin-inline: auto;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid var(--accent-color);
   background-color: var(--alt-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-block: 2rem;
+  border-radius: 4px;
+  gap: 2rem;
+  &--marked {
+    &::after {
+      top: 0.75rem;
+      right: -1.5rem;
+      font-size: 0.6rem;
+      position: absolute;
+      content: 'Выгодно';
+      background-color: var(--accent-color);
+      padding: 0.25rem 1.5rem;
+      rotate: 45deg;
+      color: var(--btn-color);
+    }
+  }
+  &:has(.ticket__btn:hover) {
+    border: 2px solid var(--link-hover);
+    &::after {
+      background-color: var(--link-hover);
+    }
+    .ticket__add {
+      background-color: var(--link-hover);
+    }
+    .ticket__title {
+      color: var(--link-hover);
+    }
+  }
 }
 .ticket__title {
   text-transform: uppercase;
 }
 .ticket__desc {
+  width: 100%;
   text-transform: lowercase;
   text-wrap: balance;
   max-width: 10rem;

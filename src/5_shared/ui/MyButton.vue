@@ -12,14 +12,19 @@ defineOptions({
 })
 
 defineProps<{
-  mode: 'link' | 'btn'
+  mode: 'link' | 'btn' | 'modal'
   modalMode?: 'comment' | 'training'
   type?: 'button' | 'submit'
 }>()
 </script>
 
 <template>
-  <button v-if="modalMode" class="btn" type="button" @click.prevent="open(modalMode)">
+  <button
+    v-if="mode === 'modal' && modalMode"
+    class="btn"
+    type="button"
+    @click.prevent="open(modalMode)"
+  >
     <slot />
   </button>
 
@@ -33,8 +38,8 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
+@use '@shared/assets/styles/mixins' as mixin;
 .btn {
-  align-self: center;
   display: inline-flex;
   justify-content: center;
   padding: 0.8rem 1rem;
@@ -45,12 +50,15 @@ defineProps<{
   font-size: 0.9rem;
   font-weight: 700px;
   line-height: 1;
-  &:hover,
-  &:focus {
+  border-radius: 4px;
+  transition: box-shadow 0.1s linear;
+  box-shadow: 0 0 2px var(--accent-color);
+  &:not(.btn--active):hover,
+  &:not(.btn--active):focus {
     border: 2px solid var(--link-hover);
     background-color: var(--link-hover);
+    box-shadow: 0 0 1px var(--accent-color);
   }
-
   &:not(.btn--blank, .btn--active) {
     color: var(--btn-color);
   }
@@ -59,19 +67,11 @@ defineProps<{
   border: 2px solid var(--link-hover);
   background-color: var(--btn-color);
   color: var(--accent-color);
-  &:hover,
-  &:focus {
-    color: var(--btn-color);
-  }
-  &:focus {
-    border: 2px solid var(--link-hover);
-    background-color: var(--btn-color);
-    color: var(--accent-color);
-  }
 }
 .btn--blank {
   background-color: transparent;
   text-transform: none;
+  box-shadow: 0 0 8px var(--accent-color);
 }
 .btn--mwidth {
   min-width: 12rem;

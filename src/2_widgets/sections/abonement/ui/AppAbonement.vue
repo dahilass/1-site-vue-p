@@ -34,13 +34,8 @@ defineOptions({
         :options="abonementSplideOptions"
         :key="currentListIndex"
       >
-        <splide-slide
-          class="card"
-          v-for="(card, i) in refLists[currentListIndex].data"
-          :key="i"
-          :class="card.isMarked ? 'card--marked' : ''"
-        >
-          <card-ticket :data="card" />
+        <splide-slide class="card" v-for="(card, i) in refLists[currentListIndex].data" :key="i">
+          <card-ticket :data="card" :isMarked="card.isMarked" />
         </splide-slide>
       </my-splide>
     </div>
@@ -55,42 +50,6 @@ defineOptions({
   align-items: center;
   height: 20rem;
   overflow: hidden;
-}
-.card {
-  max-width: 16rem;
-  margin-inline: auto;
-  overflow: hidden;
-  position: relative;
-  border: 2px solid var(--accent-color);
-  background-color: var(--alt-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  padding-block: 2rem;
-  gap: 2rem;
-  &--marked {
-    &::after {
-      top: 0.75rem;
-      right: -1.5rem;
-      font-size: 0.6rem;
-      position: absolute;
-      content: 'Выгодно';
-      background-color: var(--accent-color);
-      padding: 0.25rem 1.5rem;
-      rotate: 45deg;
-      color: var(--btn-color);
-    }
-  }
-  &:has(.card__btn:hover) {
-    border: 2px solid var(--link-hover);
-    &::after {
-      background-color: var(--link-hover);
-    }
-    .card__add {
-      background-color: var(--link-hover);
-    }
-  }
 }
 .abonement__inner {
   margin-inline: auto;

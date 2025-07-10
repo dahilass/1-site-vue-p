@@ -72,6 +72,7 @@ export type GymInfo = {
   address: string
   coordinates: number[]
   imgUrl: string
+  time: string
   properties?: {
     desc: string[]
     schedule: string[]

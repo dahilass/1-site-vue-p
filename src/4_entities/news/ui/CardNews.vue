@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CardNews } from '@app/types/types'
+import IconBookmark from '@shared/ui/icons/IconBookmark.vue'
 
 defineProps<{
   data: CardNews
@@ -7,52 +8,80 @@ defineProps<{
 </script>
 
 <template>
-  <article class="news__card">
-    <time :datetime="data.date.formatIso()" class="news__date">{{ data.date.base }}</time>
-    <img class="news__img" :src="data.imgUrl" alt="news-img" loading="lazy" />
-    <div class="news__info">
-      <h3 class="news__title marked upper">{{ data.title }}</h3>
-      <p class="news__desc line-clamp-2">
-        {{ data.brief || data.desc }}
-      </p>
-    </div>
-    <router-link class="news__link marked link" :to="'/'">Читать далее</router-link>
-  </article>
+  <router-link class="news__link" :to="`news/${data.id}`">
+    <article class="news__card">
+      <img class="news__img" :src="data.imgUrl" alt="news-img" loading="lazy" />
+      <div class="news__info">
+        <time :datetime="data.date.formatIso()" class="news__date">{{ data.date.base }}</time>
+        <h3 class="news__title marked upper">{{ data.title }}</h3>
+        <p class="news__desc line-clamp-4">
+          {{ data.brief || data.desc }}
+        </p>
+      </div>
+      <icon-bookmark class="news__icon" />
+    </article>
+  </router-link>
 </template>
 
 <style lang="scss" scoped>
 @use '@shared/assets/styles/mixins' as mixins;
 .news__card {
+  position: relative;
+  padding-bottom: 1rem;
+  overflow: hidden;
   height: 100%;
-  padding: 1rem;
   max-width: 20rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
   border-radius: 8px;
   @include mixins.card-shadow;
 }
 .news__info {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 0.5rem;
   height: 100%;
 }
 .news__img {
-  aspect-ratio: 5/3;
+  aspect-ratio: 4/3;
   object-fit: cover;
   object-position: 50%;
   max-width: 20rem;
+  filter: brightness(90%);
 }
 .news__link {
-  padding: 1rem;
-  align-self: end;
+  display: block;
+  text-wrap: wrap;
+  min-height: 20rem;
+  height: 100%;
+  transition:
+    box-shadow 0.2s linear,
+    color 0.2s linear;
+  // padding: 1rem;
+  // align-self: end;
 }
-.news__card:has(.news__link:hover) {
+.news__date {
+  font-size: 0.6rem;
+}
+.news__link:hover {
   @include mixins.card-shadow-hover;
   .news__title {
     color: var(--link-hover);
   }
+  .news__icon {
+    color: var(--main-color);
+  }
+  .news__img {
+    filter: brightness(100%);
+  }
+}
+.news__icon {
+  transition: color 0.2s linear;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  color: var(--alt-bg);
 }
 </style>
